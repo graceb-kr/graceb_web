@@ -229,7 +229,6 @@ button {
     box-shadow: 0 2px 20px rgba(0, 0, 0, 0.1);
 }
 
-.header--scrolled .header__logo-text,
 .header--scrolled .header__link {
     color: var(--color-text);
 }
@@ -244,10 +243,6 @@ button {
     justify-content: space-between;
     gap: 0;
     padding: 0 var(--container-padding);
-}
-
-.header--scrolled .header__logo-text {
-    font-size: 1.5rem;
 }
 
 .header--scrolled .header__nav {
@@ -283,13 +278,32 @@ button {
     transition: all var(--transition-normal);
 }
 
-.header__logo-text {
-    font-family: var(--font-secondary);
-    font-size: 2rem;
-    font-weight: 700;
-    letter-spacing: 0.1em;
-    color: var(--color-white);
+.header__logo-img {
+    height: 40px;
+    width: auto;
     transition: all var(--transition-normal);
+}
+
+/* 기본 상태: 흰색 로고 표시, 검은색 로고 숨김 */
+.header__logo-img--white {
+    display: block;
+}
+
+.header__logo-img--black {
+    display: none;
+}
+
+/* 스크롤 시: 검은색 로고 표시, 흰색 로고 숨김 */
+.header--scrolled .header__logo-img--white {
+    display: none;
+}
+
+.header--scrolled .header__logo-img--black {
+    display: block;
+}
+
+.header--scrolled .header__logo-img {
+    height: 32px;
 }
 
 .header__nav {
@@ -459,13 +473,11 @@ button {
     max-width: 900px;
 }
 
-.hero__subtitle {
+.hero__logo {
     display: block;
-    font-family: var(--font-secondary);
-    font-size: 0.875rem;
-    font-weight: 500;
-    letter-spacing: 0.3em;
-    margin-bottom: var(--spacing-md);
+    height: 60px;
+    width: auto;
+    margin: 0 auto var(--spacing-md);
     opacity: 0;
     transform: translateY(30px);
     animation: fadeInUp 0.8s ease forwards;
@@ -967,6 +979,77 @@ button {
     opacity: 0.8;
 }
 
+/* ==================== PORTFOLIO ==================== */
+.portfolio {
+    background-color: var(--color-gray-light);
+}
+
+.portfolio__grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: var(--spacing-md);
+}
+
+.portfolio__item {
+    background-color: var(--color-white);
+    overflow: hidden;
+    transition: all var(--transition-normal);
+}
+
+.portfolio__item:hover {
+    box-shadow: 0 15px 40px rgba(0, 0, 0, 0.1);
+    transform: translateY(-5px);
+}
+
+.portfolio__image {
+    overflow: hidden;
+}
+
+.portfolio__image img,
+.portfolio__image .placeholder-image {
+    width: 100%;
+    height: 250px;
+    object-fit: cover;
+    transition: transform var(--transition-slow);
+}
+
+.portfolio__item:hover .portfolio__image img,
+.portfolio__item:hover .portfolio__image .placeholder-image {
+    transform: scale(1.05);
+}
+
+.placeholder-image--portfolio {
+    height: 250px;
+}
+
+.portfolio__info {
+    padding: var(--spacing-md);
+}
+
+.portfolio__category {
+    display: inline-block;
+    font-family: var(--font-secondary);
+    font-size: 0.75rem;
+    font-weight: 600;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--color-accent);
+    margin-bottom: var(--spacing-xs);
+}
+
+.portfolio__title {
+    font-size: 1.125rem;
+    font-weight: 600;
+    margin-bottom: var(--spacing-xs);
+    color: var(--color-primary);
+}
+
+.portfolio__description {
+    font-size: 0.875rem;
+    color: var(--color-text-light);
+    line-height: 1.6;
+}
+
 /* ==================== CONTACT ==================== */
 .contact__content {
     display: grid;
@@ -1088,11 +1171,20 @@ button {
     border-bottom: 1px solid rgba(255, 255, 255, 0.1);
 }
 
-.footer__logo-text {
-    font-family: var(--font-secondary);
-    font-size: 1.75rem;
-    font-weight: 700;
-    letter-spacing: 0.05em;
+.footer__brand {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.footer__logo {
+    display: flex;
+    justify-content: center;
+}
+
+.footer__logo-img {
+    height: 35px;
+    width: auto;
 }
 
 .footer__tagline {
@@ -1252,6 +1344,10 @@ button {
     .contact__content {
         grid-template-columns: 1fr;
     }
+
+    .portfolio__grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
 }
 
 /* Mobile */
@@ -1270,8 +1366,8 @@ button {
         gap: 0;
     }
 
-    .header__logo-text {
-        font-size: 1.5rem;
+    .header__logo-img {
+        height: 30px;
     }
 
     /* 모바일에서 스크롤 시에도 중앙 정렬 유지 */
@@ -1279,8 +1375,8 @@ button {
         justify-content: center;
     }
 
-    .header--scrolled .header__logo-text {
-        font-size: 1.25rem;
+    .header--scrolled .header__logo-img {
+        height: 26px;
     }
 
     .header__nav {
@@ -1364,6 +1460,10 @@ button {
     }
 
     .process-steps {
+        grid-template-columns: 1fr;
+    }
+
+    .portfolio__grid {
         grid-template-columns: 1fr;
     }
 
