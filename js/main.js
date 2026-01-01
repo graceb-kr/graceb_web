@@ -11,7 +11,6 @@ document.addEventListener('DOMContentLoaded', function() {
     initSwiper();
     initCounterAnimation();
     initBackToTop();
-    initContactForm();
 });
 
 /* ==================== Header ==================== */
@@ -213,46 +212,6 @@ function initBackToTop() {
             behavior: 'smooth'
         });
     });
-}
-
-/* ==================== Contact Form ==================== */
-function initContactForm() {
-    const form = document.getElementById('contactForm');
-    if (!form) return;
-
-    form.addEventListener('submit', function(e) {
-        e.preventDefault();
-
-        // Get form data
-        const formData = new FormData(form);
-        const data = {
-            name: formData.get('name'),
-            email: formData.get('email'),
-            message: formData.get('message')
-        };
-
-        // Basic validation
-        if (!data.name || !data.email || !data.message) {
-            alert('모든 필드를 입력해주세요.');
-            return;
-        }
-
-        if (!isValidEmail(data.email)) {
-            alert('올바른 이메일 주소를 입력해주세요.');
-            return;
-        }
-
-        // TODO: Cafe24 적용 시 실제 폼 전송 로직으로 교체
-        // 현재는 데모용으로 alert만 표시
-        console.log('Form submitted:', data);
-        alert('문의가 접수되었습니다. 빠른 시일 내에 답변 드리겠습니다.');
-        form.reset();
-    });
-}
-
-function isValidEmail(email) {
-    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-    return emailRegex.test(email);
 }
 
 /* ==================== Utility Functions ==================== */
