@@ -1,0 +1,620 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="description"
+      content="Graceb - 프리미엄 화장품 제조의 새로운 기준. Creating Beauty, Delivering Trust."
+    />
+    <meta
+      name="keywords"
+      content="Graceb, 화장품 제조, OEM, ODM, Bellement, 코스메틱"
+    />
+    <title>Graceb - Creating Beauty, Delivering Trust</title>
+
+    <!-- Fonts -->
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard/dist/web/static/pretendard.css"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+
+    <!-- Swiper.js -->
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css"
+    />
+
+    <!-- AOS.js -->
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet" />
+
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="css/style.css" />
+  </head>
+  <body>
+    <!-- ========== HEADER ========== -->
+    <header class="header" id="header">
+      <div class="header__inner">
+        <!-- Store Link (visible only when not scrolled) -->
+        <a href="https://www.bellement.kr/" target="_blank" rel="noopener noreferrer" class="header__store-link">
+          벨망 공식 스토어
+          <img src="images/icons/url.png" alt="외부 링크" class="header__store-icon">
+        </a>
+
+        <!-- Logo: 추후 이미지로 교체 예정 -->
+        <a href="#" class="header__logo">
+          <!-- <img src="images/logo/logo.svg" alt="Graceb"> -->
+          <span class="header__logo-text">Graceb</span>
+        </a>
+
+        <!-- Navigation -->
+        <nav class="header__nav" id="nav">
+          <ul class="header__menu">
+            <li><a href="#about" class="header__link">회사소개</a></li>
+            <li><a href="#brand" class="header__link">브랜드</a></li>
+            <li><a href="#manufacturing" class="header__link">제조역량</a></li>
+            <li><a href="#quality" class="header__link">품질인증</a></li>
+            <li><a href="#contact" class="header__link">연락처</a></li>
+          </ul>
+        </nav>
+
+        <!-- Mobile Menu Button -->
+        <button class="header__hamburger" id="hamburger" aria-label="메뉴 열기">
+          <span></span>
+          <span></span>
+          <span></span>
+        </button>
+      </div>
+    </header>
+
+    <!-- ========== HERO SECTION ========== -->
+    <section class="hero" id="hero">
+      <!-- 배경: 추후 이미지/비디오로 교체 예정 -->
+      <div class="hero__background">
+        <!-- <img src="images/hero/hero-bg.jpg" alt=""> -->
+        <!-- <video src="images/hero/hero-video.mp4" autoplay muted loop></video> -->
+      </div>
+      <div class="hero__overlay"></div>
+
+      <div class="hero__content">
+        <span class="hero__subtitle">GRACEB</span>
+        <h1 class="hero__title">Creating Beauty,<br />Delivering Trust</h1>
+        <p class="hero__description">
+          프리미엄 화장품 제조의 새로운 기준을 만듭니다
+        </p>
+        <a href="#about" class="hero__cta">더 알아보기</a>
+      </div>
+
+      <!-- Scroll Indicator -->
+      <div class="hero__scroll">
+        <div class="hero__scroll-mouse">
+          <div class="hero__scroll-wheel"></div>
+        </div>
+        <span class="hero__scroll-text">Scroll</span>
+      </div>
+    </section>
+
+    <!-- ========== ABOUT SECTION ========== -->
+    <section class="about section" id="about">
+      <div class="container">
+        <div class="section__header" data-aos="fade-up">
+          <span class="section__subtitle">About Graceb</span>
+          <h2 class="section__title">아름다움을 창조하는 기업</h2>
+        </div>
+
+        <div class="about__content">
+          <div class="about__image" data-aos="fade-right">
+            <!-- 이미지: 추후 교체 예정 -->
+            <div class="placeholder-image placeholder-image--about">
+              <span>Company Image</span>
+            </div>
+            <!-- <img src="images/about/company.jpg" alt="Graceb 회사"> -->
+          </div>
+
+          <div class="about__text" data-aos="fade-left">
+            <h3 class="about__heading">
+              신뢰를 바탕으로 아름다움을 전달합니다
+            </h3>
+            <p class="about__description">
+              Graceb은 최첨단 기술력과 엄격한 품질 관리 시스템을 바탕으로
+              프리미엄 화장품을 제조하는 전문 기업입니다. 고객의 아름다움을 위한
+              끊임없는 연구와 혁신으로 글로벌 뷰티 시장을 선도하고 있습니다.
+            </p>
+            <p class="about__description">
+              우리는 단순한 제조를 넘어, 브랜드의 가치를 함께 만들어가는
+              파트너로서 고객과 함께 성장합니다.
+            </p>
+
+            <div class="about__stats">
+              <div class="about__stat">
+                <span class="about__stat-number">2010</span>
+                <span class="about__stat-label">설립연도</span>
+              </div>
+              <div class="about__stat">
+                <span class="about__stat-number">150+</span>
+                <span class="about__stat-label">전문 인력</span>
+              </div>
+              <div class="about__stat">
+                <span class="about__stat-number">500+</span>
+                <span class="about__stat-label">제품 라인업</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Core Values -->
+        <div class="about__values">
+          <div class="value-card" data-aos="fade-up" data-aos-delay="0">
+            <div class="value-card__icon">
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="1.5"
+              >
+                <path
+                  d="M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3m3.343-5.657l-.707-.707m2.828 9.9a5 5 0 117.072 0l-.548.547A3.374 3.374 0 0014 18.469V19a2 2 0 11-4 0v-.531c0-.895-.356-1.754-.988-2.386l-.548-.547z"
+                />
+              </svg>
+            </div>
+            <h4 class="value-card__title">Innovation</h4>
+            <p class="value-card__description">
+              끊임없는 연구개발로<br />혁신적인 제품을 창조합니다
+            </p>
+          </div>
+
+          <div class="value-card" data-aos="fade-up" data-aos-delay="100">
+            <div class="value-card__icon">
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="1.5"
+              >
+                <path
+                  d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"
+                />
+              </svg>
+            </div>
+            <h4 class="value-card__title">Quality</h4>
+            <p class="value-card__description">
+              엄격한 품질 관리로<br />최고의 제품을 보장합니다
+            </p>
+          </div>
+
+          <div class="value-card" data-aos="fade-up" data-aos-delay="200">
+            <div class="value-card__icon">
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="1.5"
+              >
+                <path
+                  d="M3.055 11H5a2 2 0 012 2v1a2 2 0 002 2 2 2 0 012 2v2.945M8 3.935V5.5A2.5 2.5 0 0010.5 8h.5a2 2 0 012 2 2 2 0 104 0 2 2 0 012-2h1.064M15 20.488V18a2 2 0 012-2h3.064M21 12a9 9 0 11-18 0 9 9 0 0118 0z"
+                />
+              </svg>
+            </div>
+            <h4 class="value-card__title">Sustainability</h4>
+            <p class="value-card__description">
+              지속 가능한 미래를 위해<br />환경을 생각합니다
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ========== BRAND SECTION ========== -->
+    <section class="brand section section--gray" id="brand">
+      <div class="container">
+        <div class="section__header" data-aos="fade-up">
+          <span class="section__subtitle">Our Brand</span>
+          <h2 class="section__title">Bellement</h2>
+        </div>
+
+        <div class="brand__content">
+          <div class="brand__info" data-aos="fade-up">
+            <!-- Bellement 로고: 추후 이미지로 교체 예정 -->
+            <div class="brand__logo">
+              <!-- <img src="images/brand/bellement-logo.svg" alt="Bellement"> -->
+              <span class="brand__logo-text">Bellement</span>
+            </div>
+            <p class="brand__slogan">"Beauty in Every Moment"</p>
+            <p class="brand__description">
+              Bellement은 Graceb의 대표 브랜드로, 자연에서 영감을 받은 프리미엄
+              스킨케어 라인을 선보입니다. 과학과 자연의 조화로운 결합으로 모든
+              순간을 아름답게 만들어 드립니다.
+            </p>
+            <a href="https://www.bellement.kr/" target="_blank" rel="noopener noreferrer" class="btn btn--primary">브랜드 사이트 바로가기</a>
+          </div>
+
+          <!-- Product Slider -->
+          <div class="brand__slider" data-aos="fade-up" data-aos-delay="100">
+            <div class="swiper brand-swiper">
+              <div class="swiper-wrapper">
+                <!-- 제품 이미지: 추후 교체 예정 -->
+                <div class="swiper-slide">
+                  <div class="product-card">
+                    <div class="placeholder-image placeholder-image--product">
+                      <span>Product 1</span>
+                    </div>
+                    <!-- <img src="images/brand/product-1.jpg" alt="제품 1"> -->
+                  </div>
+                </div>
+                <div class="swiper-slide">
+                  <div class="product-card">
+                    <div class="placeholder-image placeholder-image--product">
+                      <span>Product 2</span>
+                    </div>
+                  </div>
+                </div>
+                <div class="swiper-slide">
+                  <div class="product-card">
+                    <div class="placeholder-image placeholder-image--product">
+                      <span>Product 3</span>
+                    </div>
+                  </div>
+                </div>
+                <div class="swiper-slide">
+                  <div class="product-card">
+                    <div class="placeholder-image placeholder-image--product">
+                      <span>Product 4</span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="swiper-pagination"></div>
+              <div class="swiper-button-prev"></div>
+              <div class="swiper-button-next"></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ========== MANUFACTURING SECTION ========== -->
+    <section class="manufacturing section" id="manufacturing">
+      <div class="container">
+        <div class="section__header" data-aos="fade-up">
+          <span class="section__subtitle">Manufacturing Excellence</span>
+          <h2 class="section__title">최첨단 설비와 기술력</h2>
+        </div>
+
+        <!-- Facility Gallery -->
+        <div class="manufacturing__gallery" data-aos="fade-up">
+          <div class="gallery-grid">
+            <!-- 시설 이미지: 추후 교체 예정 -->
+            <div class="gallery-item gallery-item--large">
+              <div class="placeholder-image placeholder-image--facility">
+                <span>Manufacturing Facility 1</span>
+              </div>
+              <!-- <img src="images/facility/facility-1.jpg" alt="제조 시설"> -->
+            </div>
+            <div class="gallery-item">
+              <div class="placeholder-image placeholder-image--facility">
+                <span>Facility 2</span>
+              </div>
+            </div>
+            <div class="gallery-item">
+              <div class="placeholder-image placeholder-image--facility">
+                <span>Facility 3</span>
+              </div>
+            </div>
+            <div class="gallery-item">
+              <div class="placeholder-image placeholder-image--facility">
+                <span>Facility 4</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Counter Stats -->
+        <div class="manufacturing__stats">
+          <div class="counter-card" data-aos="fade-up" data-aos-delay="0">
+            <span class="counter-card__number" data-target="10000000">0</span>
+            <span class="counter-card__suffix">+</span>
+            <span class="counter-card__label">연간 생산량</span>
+          </div>
+          <div class="counter-card" data-aos="fade-up" data-aos-delay="100">
+            <span class="counter-card__number" data-target="20">0</span>
+            <span class="counter-card__suffix">+</span>
+            <span class="counter-card__label">제조 라인</span>
+          </div>
+          <div class="counter-card" data-aos="fade-up" data-aos-delay="200">
+            <span class="counter-card__number" data-target="50">0</span>
+            <span class="counter-card__suffix">+</span>
+            <span class="counter-card__label">R&D 인력</span>
+          </div>
+          <div class="counter-card" data-aos="fade-up" data-aos-delay="300">
+            <span class="counter-card__number" data-target="30">0</span>
+            <span class="counter-card__suffix">+</span>
+            <span class="counter-card__label">수출 국가</span>
+          </div>
+        </div>
+
+        <!-- OEM/ODM Services -->
+        <div class="manufacturing__services" data-aos="fade-up">
+          <div class="service-box">
+            <h3 class="service-box__title">OEM 서비스</h3>
+            <p class="service-box__description">
+              고객사의 브랜드와 제품 사양에 맞춘 맞춤형 생산 서비스를
+              제공합니다.
+            </p>
+          </div>
+          <div class="service-box">
+            <h3 class="service-box__title">ODM 서비스</h3>
+            <p class="service-box__description">
+              기획부터 생산까지 원스톱 솔루션으로 브랜드의 성공을 지원합니다.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ========== QUALITY SECTION ========== -->
+    <section class="quality section section--dark" id="quality">
+      <div class="container">
+        <div class="section__header" data-aos="fade-up">
+          <span class="section__subtitle">Quality & Certification</span>
+          <h2 class="section__title">신뢰할 수 있는 품질</h2>
+        </div>
+
+        <!-- Certifications -->
+        <div class="quality__certifications" data-aos="fade-up">
+          <!-- 인증 마크: 추후 이미지로 교체 예정 -->
+          <div class="cert-badge">
+            <div class="cert-badge__icon">CGMP</div>
+            <span class="cert-badge__name">CGMP 인증</span>
+          </div>
+          <div class="cert-badge">
+            <div class="cert-badge__icon">ISO</div>
+            <span class="cert-badge__name">ISO 22716</span>
+          </div>
+          <div class="cert-badge">
+            <div class="cert-badge__icon">ISO</div>
+            <span class="cert-badge__name">ISO 9001</span>
+          </div>
+          <div class="cert-badge">
+            <div class="cert-badge__icon">FDA</div>
+            <span class="cert-badge__name">FDA 등록</span>
+          </div>
+        </div>
+
+        <!-- Quality Process -->
+        <div class="quality__process" data-aos="fade-up">
+          <h3 class="quality__process-title">품질 관리 프로세스</h3>
+          <div class="process-steps">
+            <div class="process-step">
+              <div class="process-step__number">01</div>
+              <div class="process-step__content">
+                <h4>원료 선별</h4>
+                <p>엄격한 기준의 원료 검수</p>
+              </div>
+            </div>
+            <div class="process-step">
+              <div class="process-step__number">02</div>
+              <div class="process-step__content">
+                <h4>제조</h4>
+                <p>클린룸 환경의 생산 시설</p>
+              </div>
+            </div>
+            <div class="process-step">
+              <div class="process-step__number">03</div>
+              <div class="process-step__content">
+                <h4>품질 검사</h4>
+                <p>다단계 품질 테스트</p>
+              </div>
+            </div>
+            <div class="process-step">
+              <div class="process-step__number">04</div>
+              <div class="process-step__content">
+                <h4>출하</h4>
+                <p>최종 검수 및 포장</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ========== CONTACT SECTION ========== -->
+    <section class="contact section" id="contact">
+      <div class="container">
+        <div class="section__header" data-aos="fade-up">
+          <span class="section__subtitle">Contact Us</span>
+          <h2 class="section__title">문의하기</h2>
+        </div>
+
+        <div class="contact__content">
+          <div class="contact__info" data-aos="fade-right">
+            <div class="contact__item">
+              <div class="contact__icon">
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="1.5"
+                >
+                  <path
+                    d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"
+                  />
+                  <path d="M15 11a3 3 0 11-6 0 3 3 0 016 0z" />
+                </svg>
+              </div>
+              <div class="contact__details">
+                <h4>주소</h4>
+                <!-- 주소: 추후 업데이트 예정 -->
+                <p>서울특별시 강남구 테헤란로 123<br />Graceb 빌딩 5층</p>
+              </div>
+            </div>
+
+            <div class="contact__item">
+              <div class="contact__icon">
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="1.5"
+                >
+                  <path
+                    d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"
+                  />
+                </svg>
+              </div>
+              <div class="contact__details">
+                <h4>전화</h4>
+                <p>02-0000-0000</p>
+              </div>
+            </div>
+
+            <div class="contact__item">
+              <div class="contact__icon">
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="1.5"
+                >
+                  <path
+                    d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"
+                  />
+                </svg>
+              </div>
+              <div class="contact__details">
+                <h4>이메일</h4>
+                <p>contact@graceb.com</p>
+              </div>
+            </div>
+
+            <div class="contact__item">
+              <div class="contact__icon">
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="1.5"
+                >
+                  <path d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" />
+                </svg>
+              </div>
+              <div class="contact__details">
+                <h4>업무 시간</h4>
+                <p>평일 09:00 - 18:00</p>
+              </div>
+            </div>
+          </div>
+
+          <div class="contact__map" data-aos="fade-left">
+            <!-- 지도: 추후 Google Maps embed 또는 이미지로 교체 예정 -->
+            <div class="placeholder-image placeholder-image--map">
+              <span>Map Location</span>
+            </div>
+            <!-- <iframe src="Google Maps Embed URL"></iframe> -->
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ========== FOOTER ========== -->
+    <footer class="footer">
+      <div class="container">
+        <div class="footer__content">
+          <div class="footer__brand">
+            <!-- 로고: 추후 이미지로 교체 예정 -->
+            <a href="#" class="footer__logo">
+              <!-- <img src="images/logo/logo-white.svg" alt="Graceb"> -->
+              <span class="footer__logo-text">Graceb</span>
+            </a>
+            <p class="footer__tagline">Creating Beauty, Delivering Trust</p>
+          </div>
+
+          <div class="footer__links">
+            <h4>Quick Links</h4>
+            <ul>
+              <li><a href="#about">회사소개</a></li>
+              <li><a href="#brand">브랜드</a></li>
+              <li><a href="#manufacturing">제조역량</a></li>
+              <li><a href="#quality">품질인증</a></li>
+              <li><a href="#contact">연락처</a></li>
+            </ul>
+          </div>
+
+          <div class="footer__social">
+            <h4>Follow Us</h4>
+            <div class="footer__social-links">
+              <!-- SNS 링크: 추후 업데이트 예정 -->
+              <a href="#" aria-label="Instagram" class="social-link">
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  viewBox="0 0 24 24"
+                  fill="currentColor"
+                >
+                  <path
+                    d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"
+                  />
+                </svg>
+              </a>
+              <a href="#" aria-label="YouTube" class="social-link">
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  viewBox="0 0 24 24"
+                  fill="currentColor"
+                >
+                  <path
+                    d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"
+                  />
+                </svg>
+              </a>
+              <a href="#" aria-label="Facebook" class="social-link">
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  viewBox="0 0 24 24"
+                  fill="currentColor"
+                >
+                  <path
+                    d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"
+                  />
+                </svg>
+              </a>
+            </div>
+          </div>
+        </div>
+
+        <div class="footer__bottom">
+          <p class="footer__copyright">
+            &copy; 2025 Graceb. All Rights Reserved.
+          </p>
+        </div>
+      </div>
+
+      <!-- Back to Top Button -->
+      <button class="back-to-top" id="backToTop" aria-label="맨 위로">
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          viewBox="0 0 24 24"
+          fill="none"
+          stroke="currentColor"
+          stroke-width="2"
+        >
+          <path d="M5 15l7-7 7 7" />
+        </svg>
+      </button>
+    </footer>
+
+    <!-- Scripts -->
+    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script src="js/main.js"></script>
+  </body>
+</html>
