@@ -866,6 +866,7 @@ button {
 .about__stats {
   display: flex;
   justify-content: center;
+  align-items: stretch;
   gap: var(--spacing-xl);
   margin-top: var(--spacing-lg);
   padding-top: var(--spacing-lg);
@@ -874,26 +875,32 @@ button {
 
 .about__stat {
   text-align: center;
-  flex: 0 0 auto;
+  flex: 1 1 0;
+  display: flex;
+  flex-direction: column;
+  min-width: 120px;
+  max-width: 200px;
 }
 
 .about__stat-number {
-  display: block;
+  flex: 1;
   font-family: 'Pretendard', var(--font-primary);
-  font-size: 2rem;
+  font-size: 1.75rem;
   font-weight: 600;
+  line-height: 1;
   color: var(--color-primary);
 }
 
 .about__stat-number--korean {
-  font-family: 'Pretendard', var(--font-primary);
-  font-size: 1.75rem;
-  font-weight: 500;
+  font-size: 1.25rem;
+  line-height: 1.3;
 }
 
 .about__stat-label {
   font-size: 0.875rem;
   color: var(--color-text-light);
+  margin-top: auto;
+  padding-top: 0.5rem;
 }
 
 .about__values {
