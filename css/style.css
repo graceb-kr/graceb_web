@@ -1822,3 +1822,54 @@ body .about__image img,
   display: block !important;
   object-fit: cover !important;
 }
+
+/* Footer SNS - New class names to avoid Cafe24 blocking */
+.footer-sns {
+  display: flex !important;
+  flex-direction: column !important;
+  align-items: center !important;
+  visibility: visible !important;
+  opacity: 1 !important;
+}
+
+.footer-sns h4 {
+  display: none;
+}
+
+.footer-sns-list {
+  display: flex !important;
+  justify-content: center !important;
+  gap: 1rem !important;
+  visibility: visible !important;
+  opacity: 1 !important;
+}
+
+.sns-btn {
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  width: 40px !important;
+  height: 40px !important;
+  border: 1px solid rgba(255, 255, 255, 0.3) !important;
+  visibility: visible !important;
+  opacity: 1 !important;
+  transition: all 0.3s ease;
+}
+
+.sns-btn:hover {
+  background-color: #ffffff;
+  border-color: #ffffff;
+}
+
+.sns-btn svg {
+  display: block !important;
+  width: 18px !important;
+  height: 18px !important;
+  fill: #ffffff !important;
+  visibility: visible !important;
+  opacity: 1 !important;
+}
+
+.sns-btn:hover svg {
+  fill: #1a1a1a !important;
+}
