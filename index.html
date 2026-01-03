@@ -31,7 +31,7 @@
       rel="icon"
       type="image/png"
       sizes="32x32"
-      href="images/logo/favicon-96x96.png"
+      href="../images/logo/favicon-96x96.png"
     />
 
     <!-- Fonts -->
@@ -47,7 +47,7 @@
     <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet" />
 
     <!-- Custom CSS -->
-    <link rel="stylesheet" href="css/style.css" />
+    <link rel="stylesheet" href="../css/style.css" />
   </head>
   <body>
     <!-- ========== HEADER ========== -->
@@ -62,7 +62,7 @@
         >
           벨망 공식 스토어
           <img
-            src="images/icons/url.png"
+            src="../images/icons/url.png"
             alt="외부 링크"
             class="header__store-icon"
           />
@@ -71,12 +71,12 @@
         <!-- Logo -->
         <a href="#" class="header__logo">
           <img
-            src="images/logo/Grace_B_W.png"
+            src="../images/logo/Grace_B_W.png"
             alt="Graceb"
             class="header__logo-img header__logo-img--white"
           />
           <img
-            src="images/logo/Graceb_B.png"
+            src="../images/logo/Graceb_B.png"
             alt="Graceb"
             class="header__logo-img header__logo-img--black"
           />
@@ -108,10 +108,13 @@
       <!-- 배경 동영상 슬라이더 -->
       <div class="hero__slider">
         <div class="hero__slide hero__slide--active" data-title="Creating Beauty,<br />Delivering Trust" data-description="프리미엄 화장품 제조의 새로운 기준을 만듭니다">
-          <video src="videos/hero/video_1.mp4" autoplay muted playsinline></video>
+          <video src="../videos/hero/video_1.mp4" autoplay muted playsinline></video>
         </div>
         <div class="hero__slide" data-title="Science Meets Nature,<br />Beauty Perfected" data-description="자연과 과학의 조화로 완벽한 아름다움을 선사합니다">
-          <video src="videos/hero/video_2.mp4" muted playsinline></video>
+          <video src="../videos/hero/video_2.mp4" muted playsinline></video>
+        </div>
+        <div class="hero__slide" data-title="Excellence in Every Drop,<br />Crafted with Care" data-description="한 방울의 정성으로 완성되는 프리미엄 제조 공정">
+          <video src="../videos/hero/video_3.mp4" muted playsinline></video>
         </div>
       </div>
       <div class="hero__overlay"></div>
@@ -129,7 +132,7 @@
       </button>
 
       <div class="hero__content">
-        <img src="images/logo/Grace_B_W.png" alt="Graceb" class="hero__logo" />
+        <img src="../images/logo/Grace_B_W.png" alt="Graceb" class="hero__logo" />
         <h1 class="hero__title">Creating Beauty,<br />Delivering Trust</h1>
         <p class="hero__description">
           프리미엄 화장품 제조의 새로운 기준을 만듭니다
@@ -149,11 +152,7 @@
 
         <div class="about__content">
           <div class="about__image" data-aos="fade-right">
-            <!-- 이미지: 추후 교체 예정 -->
-            <div class="placeholder-image placeholder-image--about">
-              <span>Company Image</span>
-            </div>
-            <!-- <img src="images/about/company.jpg" alt="Graceb 회사"> -->
+            <img src="../images/about/1.png" alt="Graceb 회사" />
           </div>
 
           <div class="about__text" data-aos="fade-left">
@@ -259,7 +258,7 @@
           <span class="section__subtitle">Our Brand</span>
           <h2 class="section__title section__title--brand">
             <img
-              src="images/logo/blogo.png"
+              src="../images/logo/blogo.png"
               alt="Bellement"
               class="brand__title-logo"
             />
@@ -270,7 +269,7 @@
           <div class="brand__info" data-aos="fade-up">
             <div class="brand__logo">
               <img
-                src="images/logo/bellement_logo.png"
+                src="../images/logo/bellement_logo.png"
                 alt="Bellement"
                 class="brand__logo-img"
               />
@@ -298,22 +297,22 @@
               <div class="swiper-wrapper">
                 <div class="swiper-slide">
                   <div class="product-card">
-                    <img src="images/brand/1.png" alt="Bellement 제품 1" />
+                    <img src="../images/brand/1.png" alt="Bellement 제품 1" />
                   </div>
                 </div>
                 <div class="swiper-slide">
                   <div class="product-card">
-                    <img src="images/brand/2.png" alt="Bellement 제품 2" />
+                    <img src="../images/brand/2.png" alt="Bellement 제품 2" />
                   </div>
                 </div>
                 <div class="swiper-slide">
                   <div class="product-card">
-                    <img src="images/brand/3.png" alt="Bellement 제품 3" />
+                    <img src="../images/brand/3.png" alt="Bellement 제품 3" />
                   </div>
                 </div>
                 <div class="swiper-slide">
                   <div class="product-card">
-                    <img src="images/brand/4.png" alt="Bellement 제품 4" />
+                    <img src="../images/brand/4.png" alt="Bellement 제품 4" />
                   </div>
                 </div>
               </div>
@@ -337,52 +336,70 @@
         <div class="portfolio__grid">
           <div class="portfolio__item" data-aos="fade-up" data-aos-delay="0">
             <div class="portfolio__image">
-              <img src="images/portfolio/코카.png" alt="코카" />
+              <img src="../images/portfolio/괴이학회.png" alt="괴이학회" />
             </div>
             <div class="portfolio__info">
-              <span class="portfolio__category">OEM</span>
-              <h3 class="portfolio__title">코카</h3>
+              <span class="portfolio__category">ODM</span>
+              <span class="portfolio__tag">콜라보 펀딩 제품</span>
+              <h3 class="portfolio__title">괴이학회</h3>
               <p class="portfolio__description">
-                제품 설명 추후 업데이트
+                괴담, 호러 전문 출판 레이블 괴이학회와의 콜라보 프로젝트
               </p>
             </div>
           </div>
 
           <div class="portfolio__item" data-aos="fade-up" data-aos-delay="100">
             <div class="portfolio__image">
-              <img src="images/portfolio/하얀돛배.png" alt="하얀돛배" />
+              <img src="../images/portfolio/코카.png" alt="코카" />
             </div>
             <div class="portfolio__info">
-              <span class="portfolio__category">OEM</span>
-              <h3 class="portfolio__title">하얀돛배</h3>
+              <span class="portfolio__category">ODM</span>
+              <span class="portfolio__tag">콜라보 펀딩 제품</span>
+              <h3 class="portfolio__title">코카</h3>
               <p class="portfolio__description">
-                제품 설명 추후 업데이트
+                2026. On&Off Edition<br />파워풀한 에너지와 부드러운 디테일로 무장한 스트릿 언더씬의 강자 &lt;코카앤버터&gt; 팀굿즈 프로젝트
               </p>
             </div>
           </div>
 
           <div class="portfolio__item" data-aos="fade-up" data-aos-delay="200">
             <div class="portfolio__image">
-              <img src="images/portfolio/카일 하우스.webp" alt="카일 하우스" />
+              <img src="../images/portfolio/하얀돛배.png" alt="하얀돛배" />
             </div>
             <div class="portfolio__info">
-              <span class="portfolio__category">OEM</span>
-              <h3 class="portfolio__title">카일 하우스</h3>
+              <span class="portfolio__category">ODM</span>
+              <span class="portfolio__tag">콜라보 펀딩 제품</span>
+              <h3 class="portfolio__title">하얀돛배</h3>
               <p class="portfolio__description">
-                제품 설명 추후 업데이트
+                50년 만에 불어넣은 생명, 고전순정 '하얀 돛배' 공식굿즈 프로젝트
               </p>
             </div>
           </div>
 
           <div class="portfolio__item" data-aos="fade-up" data-aos-delay="300">
             <div class="portfolio__image">
-              <img src="images/portfolio/버터스톤.png" alt="버터스톤" />
+              <img src="../images/portfolio/카일 하우스.webp" alt="카일 하우스" />
             </div>
             <div class="portfolio__info">
-              <span class="portfolio__category">OEM</span>
+              <span class="portfolio__category">ODM</span>
+              <span class="portfolio__tag">콜라보 펀딩 제품</span>
+              <h3 class="portfolio__title">카일 하우스</h3>
+              <p class="portfolio__description">
+                향기로 다시 태어난 DJ카일하우스의 캐릭터들과 굿즈 프로젝트
+              </p>
+            </div>
+          </div>
+
+          <div class="portfolio__item" data-aos="fade-up" data-aos-delay="400">
+            <div class="portfolio__image">
+              <img src="../images/portfolio/버터스톤.png" alt="버터스톤" />
+            </div>
+            <div class="portfolio__info">
+              <span class="portfolio__category">ODM</span>
+              <span class="portfolio__tag">콜라보 펀딩 제품</span>
               <h3 class="portfolio__title">버터스톤</h3>
               <p class="portfolio__description">
-                제품 설명 추후 업데이트
+                전통 이야기를 그림을 통한 버터스톤 디자이너와의 콜라보 프로젝트
               </p>
             </div>
           </div>
@@ -401,27 +418,20 @@
         <!-- Facility Gallery -->
         <div class="manufacturing__gallery" data-aos="fade-up">
           <div class="gallery-grid">
-            <!-- 시설 이미지: 추후 교체 예정 -->
             <div class="gallery-item gallery-item--large">
-              <div class="placeholder-image placeholder-image--facility">
-                <span>Manufacturing Facility 1</span>
-              </div>
-              <!-- <img src="images/facility/facility-1.jpg" alt="제조 시설"> -->
+              <img src="../images/facility/1.png" alt="제조 시설 1" />
             </div>
             <div class="gallery-item">
-              <div class="placeholder-image placeholder-image--facility">
-                <span>Facility 2</span>
-              </div>
+              <img src="../images/facility/2.png" alt="제조 시설 2" />
             </div>
             <div class="gallery-item">
-              <div class="placeholder-image placeholder-image--facility">
-                <span>Facility 3</span>
-              </div>
+              <img src="../images/facility/3.png" alt="제조 시설 3" />
             </div>
             <div class="gallery-item">
-              <div class="placeholder-image placeholder-image--facility">
-                <span>Facility 4</span>
-              </div>
+              <img src="../images/facility/4.png" alt="제조 시설 4" />
+            </div>
+            <div class="gallery-item">
+              <img src="../images/facility/5.png" alt="제조 시설 5" />
             </div>
           </div>
         </div>
@@ -633,7 +643,7 @@
           <div class="footer__brand">
             <a href="#" class="footer__logo">
               <img
-                src="images/logo/Grace_B_W.png"
+                src="../images/logo/Grace_B_W.png"
                 alt="Graceb"
                 class="footer__logo-img"
               />
@@ -718,6 +728,6 @@
     <!-- Scripts -->
     <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
     <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
-    <script src="js/main.js"></script>
+    <script src="../js/main.js"></script>
   </body>
 </html>

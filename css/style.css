@@ -1245,6 +1245,18 @@ button {
   letter-spacing: 0.05em;
   text-transform: uppercase;
   color: var(--color-accent);
+}
+
+.portfolio__tag {
+  display: inline-block;
+  font-family: var(--font-primary);
+  font-size: 0.75rem;
+  font-weight: 500;
+  color: var(--color-text-light);
+  margin-left: var(--spacing-xs);
+}
+
+.portfolio__category + .portfolio__tag {
   margin-bottom: var(--spacing-xs);
 }
 
