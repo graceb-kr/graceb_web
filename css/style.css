@@ -1823,53 +1823,46 @@ body .about__image img,
   object-fit: cover !important;
 }
 
-/* Footer SNS - New class names to avoid Cafe24 blocking */
-.footer-sns {
-  display: flex !important;
-  flex-direction: column !important;
-  align-items: center !important;
-  visibility: visible !important;
-  opacity: 1 !important;
+/* Footer Channels - Neutral class names to avoid ad blocker */
+.footer-channels {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 
-.footer-sns h4 {
+.footer-channels h4 {
   display: none;
 }
 
-.footer-sns-list {
-  display: flex !important;
-  justify-content: center !important;
-  gap: 1rem !important;
-  visibility: visible !important;
-  opacity: 1 !important;
+.channel-list {
+  display: flex;
+  justify-content: center;
+  gap: 1rem;
 }
 
-.sns-btn {
-  display: flex !important;
-  align-items: center !important;
-  justify-content: center !important;
-  width: 40px !important;
-  height: 40px !important;
-  border: 1px solid rgba(255, 255, 255, 0.3) !important;
-  visibility: visible !important;
-  opacity: 1 !important;
+.channel-btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 40px;
+  height: 40px;
+  border: 1px solid rgba(255, 255, 255, 0.3);
   transition: all 0.3s ease;
 }
 
-.sns-btn:hover {
-  background-color: #ffffff;
-  border-color: #ffffff;
+.channel-btn:hover {
+  background-color: rgba(255, 255, 255, 0.2);
+  border-color: rgba(255, 255, 255, 0.6);
 }
 
-.sns-btn svg {
-  display: block !important;
-  width: 18px !important;
-  height: 18px !important;
-  fill: #ffffff !important;
-  visibility: visible !important;
-  opacity: 1 !important;
+.channel-btn svg {
+  display: block;
+  width: 18px;
+  height: 18px;
+  fill: #ffffff;
+  transition: fill 0.3s ease;
 }
 
-.sns-btn:hover svg {
-  fill: #1a1a1a !important;
+.channel-btn:hover svg {
+  fill: #ffffff;
 }

@@ -15,29 +15,39 @@ document.addEventListener('DOMContentLoaded', function() {
     fixFooterSocial();
 });
 
-/* ==================== Fix Footer Social (Cafe24 Override) ==================== */
+/* ==================== Fix Footer Channels (Cafe24 Override) ==================== */
 function fixFooterSocial() {
-    // 강제로 footer__social 표시
-    const footerSocial = document.querySelector('.footer__social');
-    const footerSocialLinks = document.querySelector('.footer__social-links');
-    const socialLinks = document.querySelectorAll('.social-link');
+    function applyStyles() {
+        // 중립적 클래스명 (footer-channels, channel-btn)
+        const footerChannels = document.querySelector('.footer-channels');
+        const channelList = document.querySelector('.channel-list');
+        const channelButtons = document.querySelectorAll('.channel-btn');
 
-    if (footerSocial) {
-        footerSocial.style.cssText = 'display: flex !important; flex-direction: column !important; align-items: center !important; visibility: visible !important; opacity: 1 !important;';
-    }
-
-    if (footerSocialLinks) {
-        footerSocialLinks.style.cssText = 'display: flex !important; justify-content: center !important; gap: 1rem !important; visibility: visible !important; opacity: 1 !important;';
-    }
-
-    socialLinks.forEach(link => {
-        link.style.cssText = 'display: flex !important; align-items: center !important; justify-content: center !important; width: 40px !important; height: 40px !important; border: 1px solid rgba(255,255,255,0.3) !important; visibility: visible !important; opacity: 1 !important;';
-
-        const svg = link.querySelector('svg');
-        if (svg) {
-            svg.style.cssText = 'width: 18px !important; height: 18px !important; fill: #ffffff !important; visibility: visible !important; opacity: 1 !important;';
+        if (footerChannels) {
+            footerChannels.style.cssText = 'display: flex !important; flex-direction: column !important; align-items: center !important; visibility: visible !important; opacity: 1 !important;';
         }
-    });
+
+        if (channelList) {
+            channelList.style.cssText = 'display: flex !important; justify-content: center !important; gap: 1rem !important; visibility: visible !important; opacity: 1 !important;';
+        }
+
+        channelButtons.forEach(btn => {
+            btn.style.cssText = 'display: flex !important; align-items: center !important; justify-content: center !important; width: 40px !important; height: 40px !important; border: 1px solid rgba(255,255,255,0.3) !important; visibility: visible !important; opacity: 1 !important;';
+
+            const svg = btn.querySelector('svg');
+            if (svg) {
+                svg.style.cssText = 'display: block !important; width: 18px !important; height: 18px !important; fill: #ffffff !important; visibility: visible !important; opacity: 1 !important;';
+            }
+        });
+    }
+
+    // 즉시 실행
+    applyStyles();
+
+    // 0.5초 후 다시 실행 (Cafe24 등에서 늦게 스타일 덮어씌우는 경우 대비)
+    setTimeout(applyStyles, 500);
+    setTimeout(applyStyles, 1000);
+    setTimeout(applyStyles, 2000);
 }
 
 /* ==================== Hero Slider ==================== */
