@@ -12,7 +12,33 @@ document.addEventListener('DOMContentLoaded', function() {
     initCounterAnimation();
     initBackToTop();
     initHeroSlider();
+    fixFooterSocial();
 });
+
+/* ==================== Fix Footer Social (Cafe24 Override) ==================== */
+function fixFooterSocial() {
+    // 강제로 footer__social 표시
+    const footerSocial = document.querySelector('.footer__social');
+    const footerSocialLinks = document.querySelector('.footer__social-links');
+    const socialLinks = document.querySelectorAll('.social-link');
+
+    if (footerSocial) {
+        footerSocial.style.cssText = 'display: flex !important; flex-direction: column !important; align-items: center !important; visibility: visible !important; opacity: 1 !important;';
+    }
+
+    if (footerSocialLinks) {
+        footerSocialLinks.style.cssText = 'display: flex !important; justify-content: center !important; gap: 1rem !important; visibility: visible !important; opacity: 1 !important;';
+    }
+
+    socialLinks.forEach(link => {
+        link.style.cssText = 'display: flex !important; align-items: center !important; justify-content: center !important; width: 40px !important; height: 40px !important; border: 1px solid rgba(255,255,255,0.3) !important; visibility: visible !important; opacity: 1 !important;';
+
+        const svg = link.querySelector('svg');
+        if (svg) {
+            svg.style.cssText = 'width: 18px !important; height: 18px !important; fill: #ffffff !important; visibility: visible !important; opacity: 1 !important;';
+        }
+    });
+}
 
 /* ==================== Hero Slider ==================== */
 function initHeroSlider() {
