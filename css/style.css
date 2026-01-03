@@ -1729,3 +1729,92 @@ div.footer__social-links {
     grid-column: span 1;
   }
 }
+
+/* ========== CAFE24 OVERRIDE - MUST BE LAST ========== */
+/* Footer Social Icons - Maximum Specificity */
+html body footer.footer .footer__content .footer__social,
+html body footer .footer__social,
+html body .footer__social,
+body .footer__social,
+.footer__social {
+  display: flex !important;
+  flex-direction: column !important;
+  align-items: center !important;
+  visibility: visible !important;
+  opacity: 1 !important;
+  height: auto !important;
+  width: auto !important;
+  overflow: visible !important;
+  position: relative !important;
+  z-index: 1 !important;
+}
+
+html body footer.footer .footer__content .footer__social .footer__social-links,
+html body footer .footer__social-links,
+html body .footer__social-links,
+body .footer__social-links,
+.footer__social-links {
+  display: flex !important;
+  justify-content: center !important;
+  gap: 1rem !important;
+  visibility: visible !important;
+  opacity: 1 !important;
+  height: auto !important;
+  width: auto !important;
+  overflow: visible !important;
+}
+
+html body footer.footer .footer__content .footer__social .footer__social-links .social-link,
+html body footer .social-link,
+html body .social-link,
+body .social-link,
+.social-link,
+a.social-link {
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  width: 40px !important;
+  height: 40px !important;
+  border: 1px solid rgba(255, 255, 255, 0.3) !important;
+  visibility: visible !important;
+  opacity: 1 !important;
+  background-color: transparent !important;
+}
+
+html body .social-link svg,
+body .social-link svg,
+.social-link svg,
+a.social-link svg {
+  display: block !important;
+  width: 18px !important;
+  height: 18px !important;
+  fill: #ffffff !important;
+  visibility: visible !important;
+  opacity: 1 !important;
+}
+
+/* Product Card - Remove whitespace from &nbsp; */
+html body .product-card,
+body .product-card,
+.product-card {
+  overflow: hidden !important;
+  background-color: transparent !important;
+  line-height: 0 !important;
+  font-size: 0 !important;
+}
+
+html body .product-card img,
+body .product-card img,
+.product-card img {
+  display: block !important;
+  width: 100% !important;
+  height: auto !important;
+}
+
+/* About Image - Remove whitespace */
+html body .about__image img,
+body .about__image img,
+.about__image img {
+  display: block !important;
+  object-fit: cover !important;
+}
