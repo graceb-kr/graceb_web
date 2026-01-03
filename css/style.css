@@ -988,7 +988,9 @@ button {
 
 .product-card {
   overflow: hidden;
-  background-color: var(--color-white);
+  background-color: transparent;
+  line-height: 0;
+  font-size: 0;
 }
 
 .product-card img {
