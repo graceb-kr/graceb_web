@@ -295,14 +295,16 @@ button {
   width: 100%;
   height: var(--header-height);
   z-index: var(--z-header);
-  background-color: rgba(0, 0, 0, 0.3);
-  backdrop-filter: blur(10px);
-  -webkit-backdrop-filter: blur(10px);
+  background-color: transparent;
+  backdrop-filter: none;
+  -webkit-backdrop-filter: none;
   transition: all var(--transition-normal);
 }
 
 .header:not(.header--scrolled):hover {
-  background-color: rgba(0, 0, 0, 0.6);
+  background-color: rgba(0, 0, 0, 0.4);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
 }
 
 .header--scrolled {
