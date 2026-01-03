@@ -1415,7 +1415,7 @@ button {
 .social-link svg {
   width: 18px;
   height: 18px;
-  fill: var(--color-white);
+  fill: #ffffff !important;
 }
 
 .social-link:hover {
@@ -1425,7 +1425,7 @@ button {
 }
 
 .social-link:hover svg {
-  fill: var(--color-primary);
+  fill: var(--color-primary) !important;
 }
 
 .footer__bottom {
