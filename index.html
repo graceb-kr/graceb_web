@@ -105,12 +105,28 @@
 
     <!-- ========== HERO SECTION ========== -->
     <section class="hero" id="hero">
-      <!-- 배경: 추후 이미지/비디오로 교체 예정 -->
-      <div class="hero__background">
-        <!-- <img src="images/hero/hero-bg.jpg" alt=""> -->
-        <!-- <video src="images/hero/hero-video.mp4" autoplay muted loop></video> -->
+      <!-- 배경 동영상 슬라이더 -->
+      <div class="hero__slider">
+        <div class="hero__slide hero__slide--active" data-title="Creating Beauty,<br />Delivering Trust" data-description="프리미엄 화장품 제조의 새로운 기준을 만듭니다">
+          <video src="videos/hero/video_1.mp4" autoplay muted playsinline></video>
+        </div>
+        <div class="hero__slide" data-title="Science Meets Nature,<br />Beauty Perfected" data-description="자연과 과학의 조화로 완벽한 아름다움을 선사합니다">
+          <video src="videos/hero/video_2.mp4" muted playsinline></video>
+        </div>
       </div>
       <div class="hero__overlay"></div>
+
+      <!-- 좌우 이동 버튼 -->
+      <button class="hero__nav hero__nav--prev" aria-label="이전 영상">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+          <path d="M15 19l-7-7 7-7"/>
+        </svg>
+      </button>
+      <button class="hero__nav hero__nav--next" aria-label="다음 영상">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+          <path d="M9 5l7 7-7 7"/>
+        </svg>
+      </button>
 
       <div class="hero__content">
         <img src="images/logo/Grace_B_W.png" alt="Graceb" class="hero__logo" />

@@ -11,7 +11,92 @@ document.addEventListener('DOMContentLoaded', function() {
     initSwiper();
     initCounterAnimation();
     initBackToTop();
+    initHeroSlider();
 });
+
+/* ==================== Hero Slider ==================== */
+function initHeroSlider() {
+    const slides = document.querySelectorAll('.hero__slide');
+    const prevBtn = document.querySelector('.hero__nav--prev');
+    const nextBtn = document.querySelector('.hero__nav--next');
+    const heroTitle = document.querySelector('.hero__title');
+    const heroDescription = document.querySelector('.hero__description');
+
+    if (slides.length === 0) return;
+
+    let currentSlide = 0;
+    const totalSlides = slides.length;
+
+    function goToSlide(index) {
+        // 범위 체크
+        if (index < 0) index = totalSlides - 1;
+        if (index >= totalSlides) index = 0;
+
+        // 현재 슬라이드 비활성화
+        slides[currentSlide].classList.remove('hero__slide--active');
+
+        // 새 슬라이드 활성화
+        currentSlide = index;
+        const activeSlide = slides[currentSlide];
+        activeSlide.classList.add('hero__slide--active');
+
+        // 문구 변경 (페이드 효과)
+        if (heroTitle && heroDescription) {
+            heroTitle.style.opacity = '0';
+            heroDescription.style.opacity = '0';
+
+            setTimeout(() => {
+                heroTitle.innerHTML = activeSlide.dataset.title;
+                heroDescription.textContent = activeSlide.dataset.description;
+                heroTitle.style.opacity = '1';
+                heroDescription.style.opacity = '1';
+            }, 300);
+        }
+
+        // 비디오 재생 관리
+        slides.forEach((slide, i) => {
+            const video = slide.querySelector('video');
+            if (video) {
+                if (i === currentSlide) {
+                    video.currentTime = 0;
+                    video.play();
+                } else {
+                    video.pause();
+                }
+            }
+        });
+    }
+
+    // 이전/다음 버튼
+    if (prevBtn) {
+        prevBtn.addEventListener('click', () => goToSlide(currentSlide - 1));
+    }
+    if (nextBtn) {
+        nextBtn.addEventListener('click', () => goToSlide(currentSlide + 1));
+    }
+
+    // 동영상 종료 시 다음 슬라이드로 자동 전환
+    slides.forEach((slide, i) => {
+        const video = slide.querySelector('video');
+        if (video) {
+            video.addEventListener('ended', () => {
+                goToSlide(currentSlide + 1);
+            });
+        }
+    });
+
+    // 초기화: 모든 비디오 정지 후 첫 번째 슬라이드로 이동
+    slides.forEach((slide) => {
+        const video = slide.querySelector('video');
+        if (video) {
+            video.pause();
+            video.currentTime = 0;
+        }
+    });
+
+    // 첫 번째 슬라이드 강제 활성화
+    goToSlide(0);
+}
 
 /* ==================== Header ==================== */
 function initHeader() {
