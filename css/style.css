@@ -1415,12 +1415,17 @@ button {
 .social-link svg {
   width: 18px;
   height: 18px;
+  fill: var(--color-white);
 }
 
 .social-link:hover {
   background-color: var(--color-white);
   border-color: var(--color-white);
   color: var(--color-primary);
+}
+
+.social-link:hover svg {
+  fill: var(--color-primary);
 }
 
 .footer__bottom {
