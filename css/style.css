@@ -1378,10 +1378,24 @@ button {
   display: none;
 }
 
-.footer__social {
+.footer__social,
+.footer .footer__social,
+.footer__content .footer__social,
+div.footer__social {
   display: flex !important;
-  flex-direction: column;
-  align-items: center;
+  flex-direction: column !important;
+  align-items: center !important;
+  visibility: visible !important;
+  opacity: 1 !important;
+}
+
+.footer__social-links,
+.footer .footer__social-links,
+.footer__social .footer__social-links,
+div.footer__social-links {
+  display: flex !important;
+  justify-content: center !important;
+  gap: 1rem !important;
   visibility: visible !important;
   opacity: 1 !important;
 }
