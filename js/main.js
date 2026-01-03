@@ -26,6 +26,7 @@ function initHeroSlider() {
 
     let currentSlide = 0;
     const totalSlides = slides.length;
+    let isFirstLoad = true;
 
     function goToSlide(index) {
         // 범위 체크
@@ -42,15 +43,23 @@ function initHeroSlider() {
 
         // 문구 변경 (페이드 효과)
         if (heroTitle && heroDescription) {
-            heroTitle.style.opacity = '0';
-            heroDescription.style.opacity = '0';
+            // 첫 로드가 아닌 경우에만 페이드 효과 적용
+            if (!isFirstLoad) {
+                // 애니메이션 비활성화 후 transition만 사용
+                heroTitle.classList.add('fade-transition');
+                heroDescription.classList.add('fade-transition');
 
-            setTimeout(() => {
-                heroTitle.innerHTML = activeSlide.dataset.title;
-                heroDescription.textContent = activeSlide.dataset.description;
-                heroTitle.style.opacity = '1';
-                heroDescription.style.opacity = '1';
-            }, 300);
+                heroTitle.style.opacity = '0';
+                heroDescription.style.opacity = '0';
+
+                setTimeout(() => {
+                    heroTitle.innerHTML = activeSlide.dataset.title;
+                    heroDescription.textContent = activeSlide.dataset.description;
+                    heroTitle.style.opacity = '1';
+                    heroDescription.style.opacity = '1';
+                }, 500);
+            }
+            isFirstLoad = false;
         }
 
         // 비디오 재생 관리
@@ -198,8 +207,12 @@ function initSwiper() {
     // Brand Product Slider
     const brandSwiper = new Swiper('.brand-swiper', {
         slidesPerView: 1,
-        spaceBetween: 20,
+        spaceBetween: 0,
         loop: true,
+        effect: 'fade',
+        fadeEffect: {
+            crossFade: true,
+        },
         autoplay: {
             delay: 4000,
             disableOnInteraction: false,
@@ -211,16 +224,6 @@ function initSwiper() {
         navigation: {
             nextEl: '.swiper-button-next',
             prevEl: '.swiper-button-prev',
-        },
-        breakpoints: {
-            640: {
-                slidesPerView: 2,
-                spaceBetween: 20,
-            },
-            1024: {
-                slidesPerView: 3,
-                spaceBetween: 30,
-            },
         },
     });
 }
