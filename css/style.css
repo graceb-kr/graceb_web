@@ -706,6 +706,90 @@ button {
   color: rgba(255, 255, 255, 0.6);
 }
 
+/* Desktop: show scroll, hide swipe */
+.hero__scroll--desktop {
+  display: flex;
+}
+
+.hero__scroll--mobile {
+  display: none;
+}
+
+/* Swipe indicator styles */
+.hero__swipe {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.hero__swipe-hand {
+  width: 32px;
+  height: 32px;
+  color: rgba(255, 255, 255, 0.6);
+  animation: swipeHand 2s ease-in-out infinite;
+}
+
+.hero__swipe-arrows {
+  display: flex;
+  gap: 4px;
+}
+
+.hero__swipe-arrow {
+  font-size: 1.2rem;
+  color: rgba(255, 255, 255, 0.4);
+  font-weight: 300;
+}
+
+.hero__swipe-arrow--left {
+  animation: swipeArrowLeft 2s ease-in-out infinite;
+}
+
+.hero__swipe-arrow--right {
+  animation: swipeArrowRight 2s ease-in-out infinite;
+}
+
+@keyframes swipeHand {
+  0%, 100% {
+    transform: translateX(0);
+  }
+  25% {
+    transform: translateX(-8px);
+  }
+  75% {
+    transform: translateX(8px);
+  }
+}
+
+@keyframes swipeArrowLeft {
+  0%, 100% {
+    opacity: 0.4;
+    transform: translateX(0);
+  }
+  25% {
+    opacity: 1;
+    transform: translateX(-4px);
+  }
+  50%, 75% {
+    opacity: 0.4;
+    transform: translateX(0);
+  }
+}
+
+@keyframes swipeArrowRight {
+  0%, 50% {
+    opacity: 0.4;
+    transform: translateX(0);
+  }
+  75% {
+    opacity: 1;
+    transform: translateX(4px);
+  }
+  100% {
+    opacity: 0.4;
+    transform: translateX(0);
+  }
+}
+
 @keyframes fadeInUp {
   to {
     opacity: 1;
@@ -768,7 +852,8 @@ button {
 
 .about__stats {
   display: flex;
-  gap: var(--spacing-lg);
+  justify-content: center;
+  gap: var(--spacing-xl);
   margin-top: var(--spacing-lg);
   padding-top: var(--spacing-lg);
   border-top: 1px solid var(--color-gray);
@@ -776,14 +861,21 @@ button {
 
 .about__stat {
   text-align: center;
+  flex: 0 0 auto;
 }
 
 .about__stat-number {
   display: block;
-  font-family: var(--font-secondary);
-  font-size: 2.5rem;
+  font-family: 'Pretendard', var(--font-primary);
+  font-size: 2rem;
   font-weight: 600;
   color: var(--color-primary);
+}
+
+.about__stat-number--korean {
+  font-family: 'Pretendard', var(--font-primary);
+  font-size: 1.75rem;
+  font-weight: 500;
 }
 
 .about__stat-label {
@@ -890,7 +982,13 @@ button {
   background-color: var(--color-white);
 }
 
-.product-card img,
+.product-card img {
+  width: 100%;
+  height: auto;
+  display: block;
+  transition: transform var(--transition-slow);
+}
+
 .product-card .placeholder-image {
   transition: transform var(--transition-slow);
 }
@@ -1496,8 +1594,12 @@ button {
     font-size: clamp(2rem, 8vw, 3rem);
   }
 
-  .hero__scroll {
+  .hero__scroll--desktop {
     display: none;
+  }
+
+  .hero__scroll--mobile {
+    display: flex;
   }
 
   .about__stats {
