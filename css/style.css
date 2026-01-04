@@ -1667,7 +1667,13 @@ div.footer__social-links {
 
   .about__stats {
     flex-direction: column;
+    align-items: center;
     gap: var(--spacing-md);
+  }
+
+  .about__stat {
+    text-align: center;
+    align-items: center;
   }
 
   .about__values {
