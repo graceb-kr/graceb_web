@@ -4,16 +4,26 @@
 
 document.addEventListener('DOMContentLoaded', function() {
     // Initialize all modules
+    initModules();
+});
+
+// 컴포넌트 로드 후 재초기화 (components.js 사용 시)
+document.addEventListener('componentsLoaded', function() {
+    initModules();
+});
+
+function initModules() {
     initHeader();
     initMobileMenu();
     initSmoothScroll();
     initAOS();
     initSwiper();
+    initPortfolioSwiper();
     initCounterAnimation();
     initBackToTop();
     initHeroSlider();
     fixFooterSocial();
-});
+}
 
 /* ==================== Fix Footer Channels (Cafe24 Override) ==================== */
 function fixFooterSocial() {
@@ -261,6 +271,30 @@ function initSwiper() {
             nextEl: '.swiper-button-next',
             prevEl: '.swiper-button-prev',
         },
+    });
+}
+
+/* ==================== Portfolio Swiper ==================== */
+function initPortfolioSwiper() {
+    if (typeof Swiper === 'undefined') return;
+
+    // 모든 포트폴리오 슬라이더 초기화
+    const portfolioSwipers = document.querySelectorAll('.portfolio-swiper');
+
+    portfolioSwipers.forEach((swiperEl) => {
+        const prevBtn = swiperEl.querySelector('.portfolio-swiper-prev');
+        const nextBtn = swiperEl.querySelector('.portfolio-swiper-next');
+        const slides = swiperEl.querySelectorAll('.swiper-slide');
+
+        new Swiper(swiperEl, {
+            slidesPerView: 1,
+            spaceBetween: 0,
+            loop: slides.length > 1, // 슬라이드가 2개 이상일 때만 loop 활성화
+            navigation: {
+                nextEl: nextBtn,
+                prevEl: prevBtn,
+            },
+        });
     });
 }
 
