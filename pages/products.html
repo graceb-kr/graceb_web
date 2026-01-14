@@ -40,7 +40,7 @@
     <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet" />
 
     <!-- Custom CSS -->
-    <link rel="stylesheet" href="/css/style.css?v=20260112d" />
+    <link rel="stylesheet" href="/css/style.css?v=20260115c" />
   </head>
   <body class="page-body">
     <!-- 헤더 플레이스홀더 (components.js가 로드) -->
@@ -64,6 +64,23 @@
     <!-- ========== PRODUCTS CONTENT ========== -->
     <section class="page-section">
       <div class="container">
+
+        <!-- 제품 검색 -->
+        <div class="products__search" data-aos="fade-up">
+          <div class="products__search-box">
+            <svg class="products__search-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <circle cx="11" cy="11" r="8"></circle>
+              <path d="M21 21l-4.35-4.35"></path>
+            </svg>
+            <input type="text" id="productSearch" class="products__search-input" placeholder="제품명 검색 (예: 향수, 디퓨저, 핸드크림...)" />
+            <button type="button" id="searchClear" class="products__search-clear" style="display: none;">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M18 6L6 18M6 6l12 12"></path>
+              </svg>
+            </button>
+          </div>
+          <p class="products__search-result" id="searchResult"></p>
+        </div>
 
         <!-- ==================== 제조 가능 품목 ==================== -->
 
@@ -610,6 +627,102 @@
     <!-- Scripts -->
     <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
     <script src="/js/components.js"></script>
-    <script src="/js/main.js?v=20260112d"></script>
+    <script src="/js/main.js?v=20260115a"></script>
+    <script>
+      // 제품 검색 기능
+      (function() {
+        const searchInput = document.getElementById('productSearch');
+        const searchClear = document.getElementById('searchClear');
+        const searchResult = document.getElementById('searchResult');
+        const sections = document.querySelectorAll('.products__section');
+        const allItems = document.querySelectorAll('.products__item');
+
+        // AOS 애니메이션 비활성화 (검색 기능과 충돌 방지)
+        allItems.forEach(item => {
+          item.removeAttribute('data-aos');
+          item.removeAttribute('data-aos-delay');
+          item.classList.add('aos-animate');
+        });
+        sections.forEach(section => {
+          const header = section.querySelector('.products__section-header');
+          if (header) {
+            header.removeAttribute('data-aos');
+            header.classList.add('aos-animate');
+          }
+        });
+
+        function filterProducts() {
+          const query = searchInput.value.trim().toLowerCase();
+          searchClear.style.display = query ? 'flex' : 'none';
+
+          if (!query) {
+            sections.forEach(section => {
+              section.style.display = '';
+              section.querySelectorAll('.products__item').forEach(item => {
+                item.style.display = '';
+              });
+            });
+            searchResult.textContent = '';
+            return;
+          }
+
+          let matchCount = 0;
+          sections.forEach(section => {
+            const grid = section.querySelector('.products__grid');
+            if (!grid) {
+              section.style.display = 'none';
+              return;
+            }
+            const sectionItems = grid.querySelectorAll('.products__item');
+            let sectionHasMatch = false;
+
+            sectionItems.forEach(item => {
+              const titleEl = item.querySelector('.products__title');
+              const descEl = item.querySelector('.products__description');
+              const tagEl = item.querySelector('.products__tag');
+
+              if (!titleEl) {
+                item.style.display = 'none';
+                return;
+              }
+
+              const title = titleEl.textContent.toLowerCase();
+              const desc = descEl ? descEl.textContent.toLowerCase() : '';
+              const tag = tagEl ? tagEl.textContent.toLowerCase() : '';
+
+              if (title.includes(query) || desc.includes(query) || tag.includes(query)) {
+                item.style.display = '';
+                sectionHasMatch = true;
+                matchCount++;
+              } else {
+                item.style.display = 'none';
+              }
+            });
+
+            section.style.display = sectionHasMatch ? '' : 'none';
+          });
+
+          if (matchCount > 0) {
+            searchResult.textContent = `${matchCount}개의 제품을 찾았습니다.`;
+            searchResult.style.color = 'var(--color-text-light)';
+          } else {
+            searchResult.textContent = '검색 결과가 없습니다.';
+            searchResult.style.color = 'var(--color-primary)';
+          }
+        }
+
+        searchInput.addEventListener('input', filterProducts);
+
+        searchClear.addEventListener('click', () => {
+          searchInput.value = '';
+          filterProducts();
+          searchInput.focus();
+        });
+
+        searchInput.addEventListener('keydown', (e) => {
+          if (e.key === 'Enter') e.preventDefault();
+        });
+      })();
+    </script>
   </body>
 </html>
