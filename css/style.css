@@ -209,6 +209,12 @@ button {
   line-height: 1.2;
 }
 
+.section__desc {
+  font-size: 1rem;
+  color: var(--color-text-light);
+  margin-top: var(--spacing-sm);
+}
+
 .section__title--brand {
   display: flex;
   justify-content: center;
@@ -1026,7 +1032,15 @@ button {
 .about__heading {
   font-size: 1.75rem;
   font-weight: 600;
+  margin-bottom: var(--spacing-xs);
+}
+
+.about__heading-sub {
+  font-size: 0.95rem;
+  font-weight: 300;
+  color: var(--color-text-light);
   margin-bottom: var(--spacing-md);
+  letter-spacing: 0.03em;
 }
 
 .about__description {
@@ -1228,6 +1242,14 @@ button {
 }
 
 /* ==================== MANUFACTURING ==================== */
+.manufacturing__description {
+  font-size: 1rem;
+  line-height: 1.8;
+  color: var(--color-text-light);
+  margin-bottom: var(--spacing-lg);
+  text-align: left;
+}
+
 .manufacturing__gallery {
   margin-bottom: var(--spacing-xl);
 }
@@ -2157,9 +2179,20 @@ body .about__image img,
   letter-spacing: 0.02em;
 }
 
+.page-hero__description-sub {
+  font-family: var(--font-primary);
+  font-size: 0.875rem;
+  font-weight: 300;
+  margin-top: var(--spacing-xs);
+  color: rgba(255, 255, 255, 0.5);
+  letter-spacing: 0.05em;
+}
+
 .page-hero__title-logo {
   height: 60px;
   width: auto;
+  display: block;
+  margin: 0 auto;
 }
 
 /* Page Section */
