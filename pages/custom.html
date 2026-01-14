@@ -36,6 +36,12 @@
     <!-- Fonts -->
     <link rel="stylesheet" href="https://use.typekit.net/xlc0hdn.css" />
 
+    <!-- Swiper.js -->
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css"
+    />
+
     <!-- AOS.js -->
     <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet" />
 
@@ -234,7 +240,21 @@
             </div>
             <div class="products__item" data-aos="fade-up" data-aos-delay="100">
               <div class="products__image">
-                <img src="/images/커스텀 제작/제품 각인/공병 4도 각인 600x600.png" alt="4도 각인" />
+                <div class="swiper products-swiper">
+                  <div class="swiper-wrapper">
+                    <div class="swiper-slide">
+                      <img src="/images/커스텀 제작/제품 각인/공병 4도 각인 600x600.png" alt="4도 각인" />
+                    </div>
+                    <div class="swiper-slide">
+                      <img src="/images/커스텀 제작/제품 각인/스노우베리 4도 각인.png" alt="스노우베리 4도 각인" />
+                    </div>
+                    <div class="swiper-slide">
+                      <img src="/images/커스텀 제작/제품 각인/야미 4도 각인.png" alt="야미 4도 각인" />
+                    </div>
+                  </div>
+                  <div class="swiper-button-prev products-swiper-prev"></div>
+                  <div class="swiper-button-next products-swiper-next"></div>
+                </div>
               </div>
               <div class="products__info">
                 <span class="products__tag">제품 각인</span>
@@ -254,7 +274,18 @@
             </div>
             <div class="products__item" data-aos="fade-up" data-aos-delay="300">
               <div class="products__image">
-                <img src="/images/커스텀 제작/제품 각인/다양한 패키지 각인 600x600.png" alt="패키지 각인" />
+                <div class="swiper products-swiper">
+                  <div class="swiper-wrapper">
+                    <div class="swiper-slide">
+                      <img src="/images/커스텀 제작/제품 각인/다양한 패키지 각인 600x600.png" alt="패키지 각인" />
+                    </div>
+                    <div class="swiper-slide">
+                      <img src="/images/커스텀 제작/제품 각인/패키지 각인.png" alt="패키지 각인 2" />
+                    </div>
+                  </div>
+                  <div class="swiper-button-prev products-swiper-prev"></div>
+                  <div class="swiper-button-next products-swiper-next"></div>
+                </div>
               </div>
               <div class="products__info">
                 <span class="products__tag">제품 각인</span>
@@ -272,8 +303,21 @@
     <div id="footer-placeholder"></div>
 
     <!-- Scripts -->
+    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
     <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
     <script src="/js/components.js"></script>
     <script src="/js/main.js?v=20260112d"></script>
+    <script>
+      // Products Swiper 초기화
+      document.querySelectorAll('.products-swiper').forEach(swiperEl => {
+        new Swiper(swiperEl, {
+          loop: true,
+          navigation: {
+            nextEl: swiperEl.querySelector('.swiper-button-next'),
+            prevEl: swiperEl.querySelector('.swiper-button-prev'),
+          },
+        });
+      });
+    </script>
   </body>
 </html>
