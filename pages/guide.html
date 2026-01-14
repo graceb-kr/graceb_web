@@ -54,7 +54,8 @@
       <div class="container">
         <div class="page-hero__content">
           <span class="page-hero__subtitle">Guide</span>
-          <h1 class="page-hero__title">OEM / ODM</h1>
+          <h1 class="page-hero__title">제작안내</h1>
+          <p class="page-hero__description">제품 기획부터 생산까지의 제작 절차를 안내합니다</p>
         </div>
       </div>
     </section>
@@ -430,19 +431,11 @@
     <script src="/js/components.js"></script>
     <script src="/js/main.js?v=20260113a"></script>
     <script>
-      // FAQ Accordion
+      // FAQ Accordion (toggle individually, don't close others)
       document.querySelectorAll('.faq__question').forEach(button => {
         button.addEventListener('click', () => {
           const item = button.parentElement;
-          const isActive = item.classList.contains('active');
-
-          // Close all items
-          document.querySelectorAll('.faq__item').forEach(i => i.classList.remove('active'));
-
-          // Open clicked item if it wasn't active
-          if (!isActive) {
-            item.classList.add('active');
-          }
+          item.classList.toggle('active');
         });
       });
 
