@@ -522,24 +522,26 @@ button {
 /* ==================== HEADER DROPDOWN ==================== */
 .header__menu-item {
   position: relative;
-  padding-bottom: 20px;
-  margin-bottom: -20px;
+}
+
+.header__menu-item--has-dropdown {
+  padding: 30px 0;
+  margin: -30px 0;
 }
 
 .header__dropdown {
   position: fixed;
-  top: calc(var(--header-height) - 10px);
+  top: var(--header-height);
   left: 0;
   width: 100%;
   opacity: 0;
   visibility: hidden;
   transform: translateY(-10px);
   transition: all var(--transition-normal);
-  z-index: calc(var(--z-header) - 1);
-  padding-top: 10px;
+  z-index: calc(var(--z-header) + 1);
 }
 
-.header__menu-item--has-dropdown:hover .header__dropdown {
+.header__menu-item--has-dropdown.dropdown-active .header__dropdown {
   opacity: 1;
   visibility: visible;
   transform: translateY(0);
