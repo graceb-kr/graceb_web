@@ -2101,6 +2101,7 @@ body .about__image img,
   text-align: center;
   color: var(--color-white);
   z-index: 1;
+  padding-top: 80px;
 }
 
 .page-hero__subtitle {
@@ -2213,8 +2214,8 @@ body .about__image img,
 
 /* Simple Page Hero - smaller height for pages with content images */
 .page-hero--simple {
-  height: 30vh;
-  min-height: 250px;
+  height: 60vh;
+  min-height: 450px;
 }
 
 /* Responsive for Pages */
@@ -2225,8 +2226,8 @@ body .about__image img,
   }
 
   .page-hero--simple {
-    height: 25vh;
-    min-height: 200px;
+    height: 50vh;
+    min-height: 350px;
   }
 
   .page-hero__title-logo {
