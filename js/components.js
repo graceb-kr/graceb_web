@@ -34,59 +34,9 @@
         }
     }
 
-    // 드롭다운 메뉴 호버 처리
+    // 드롭다운 메뉴 호버 처리 - CSS :hover로 대체됨
     function setupDropdownHover() {
-        const menuItems = document.querySelectorAll('.header__menu-item--has-dropdown');
-        let activeDropdown = null;
-        let hoverTimeout = null;
-
-        menuItems.forEach(item => {
-            const dropdown = item.querySelector('.header__dropdown');
-
-            // 메뉴 아이템에 마우스 진입
-            item.addEventListener('mouseenter', () => {
-                clearTimeout(hoverTimeout);
-                if (activeDropdown && activeDropdown !== item) {
-                    activeDropdown.classList.remove('dropdown-active');
-                }
-                item.classList.add('dropdown-active');
-                activeDropdown = item;
-            });
-
-            // 메뉴 아이템에서 마우스 이탈
-            item.addEventListener('mouseleave', (e) => {
-                // 드롭다운으로 이동하는지 체크
-                const toElement = e.relatedTarget;
-                if (dropdown && dropdown.contains(toElement)) {
-                    return; // 드롭다운으로 이동 중이면 유지
-                }
-                hoverTimeout = setTimeout(() => {
-                    item.classList.remove('dropdown-active');
-                    if (activeDropdown === item) activeDropdown = null;
-                }, 50);
-            });
-
-            // 드롭다운에 마우스 진입
-            if (dropdown) {
-                dropdown.addEventListener('mouseenter', () => {
-                    clearTimeout(hoverTimeout);
-                    item.classList.add('dropdown-active');
-                    activeDropdown = item;
-                });
-
-                // 드롭다운에서 마우스 이탈
-                dropdown.addEventListener('mouseleave', (e) => {
-                    const toElement = e.relatedTarget;
-                    if (item.contains(toElement)) {
-                        return; // 메뉴 아이템으로 돌아가면 유지
-                    }
-                    hoverTimeout = setTimeout(() => {
-                        item.classList.remove('dropdown-active');
-                        if (activeDropdown === item) activeDropdown = null;
-                    }, 50);
-                });
-            }
-        });
+        // 순수 CSS로 처리
     }
 
     // 컴포넌트 초기화
