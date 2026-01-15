@@ -1201,11 +1201,15 @@ button {
 }
 
 /* ==================== BRAND ==================== */
+.brand-section {
+  position: relative;
+  padding: 0;
+  min-height: calc(100vh - 200px);
+}
+
 .brand__content {
-  display: grid;
-  grid-template-columns: 1fr 1.5fr;
-  gap: var(--spacing-xl);
-  align-items: center;
+  position: relative;
+  min-height: calc(100vh - 300px);
 }
 
 .brand__info {
@@ -1242,11 +1246,43 @@ button {
 }
 
 .brand__slider {
+  position: absolute;
+  right: 0;
+  top: 60px;
+  width: 70%;
+  height: calc(100% - 120px);
+}
+
+.brand__slider .brand-swiper {
+  height: 100%;
+  padding-bottom: 0;
+}
+
+.brand__slider .swiper-wrapper {
+  height: 100%;
+}
+
+.brand__slider .swiper-slide {
+  height: auto;
+  display: flex;
+  align-items: center;
+}
+
+.brand__slider .product-card {
+  width: 100%;
   overflow: hidden;
+  line-height: 0;
+  font-size: 0;
+}
+
+.brand__slider .product-card img {
+  width: 100%;
+  height: auto;
+  display: block;
 }
 
 .brand-swiper {
-  padding-bottom: 50px;
+  padding-bottom: 0;
 }
 
 .product-card {
@@ -1267,10 +1303,6 @@ button {
   transition: transform var(--transition-slow);
 }
 
-.product-card:hover img,
-.product-card:hover .placeholder-image {
-  transform: scale(1.05);
-}
 
 /* Swiper Customization */
 .swiper-button-prev,
