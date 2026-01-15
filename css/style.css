@@ -678,6 +678,13 @@ button {
   flex: 2;
 }
 
+/* About dropdown - 3 column layout */
+.header__dropdown-right--about {
+  display: flex;
+  gap: var(--spacing-xl);
+  flex: 2;
+}
+
 .header__dropdown-group {
   display: flex;
   flex-direction: column;
