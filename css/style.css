@@ -1752,6 +1752,237 @@ div.footer__social-links {
   opacity: 0.6;
 }
 
+/* ========== HISTORY TIMELINE ========== */
+.page-section--dark {
+  background-color: var(--color-dark);
+  color: var(--color-white);
+}
+
+.history-timeline {
+  position: relative;
+  max-width: 500px;
+  padding-bottom: 3rem;
+}
+
+/* 왼쪽 타임라인: 왼쪽에 세로선 */
+.history-timeline--left {
+  margin-left: 8rem;
+  margin-right: auto;
+  padding-left: 3rem;
+}
+
+.history-timeline--left::before {
+  content: '';
+  position: absolute;
+  left: 6px;
+  top: 0;
+  bottom: 0;
+  width: 2px;
+  background: linear-gradient(to bottom, var(--color-primary), rgba(139, 115, 85, 0.3));
+}
+
+/* 오른쪽 타임라인: 오른쪽에 세로선 */
+.history-timeline--right {
+  margin-left: auto;
+  margin-right: 8rem;
+  padding-right: 3rem;
+  padding-left: 0;
+  padding-bottom: 0;
+}
+
+.history-timeline--right::before {
+  content: '';
+  position: absolute;
+  right: 6px;
+  top: 0;
+  bottom: 0;
+  width: 2px;
+  background: linear-gradient(to bottom, var(--color-primary), rgba(139, 115, 85, 0.3));
+}
+
+.history-item {
+  position: relative;
+  padding-bottom: 2.5rem;
+}
+
+.history-item:last-child {
+  padding-bottom: 0;
+}
+
+/* 왼쪽 타임라인 점 (왼쪽에) */
+.history-timeline--left .history-item::before {
+  content: '';
+  position: absolute;
+  left: -3rem;
+  top: 10px;
+  width: 14px;
+  height: 14px;
+  background-color: var(--color-dark);
+  border: 3px solid var(--color-primary);
+  border-radius: 50%;
+  transform: translateX(50%);
+  z-index: 1;
+}
+
+/* 오른쪽 타임라인 점 (오른쪽에) */
+.history-timeline--right .history-item::before {
+  content: '';
+  position: absolute;
+  right: -3rem;
+  top: 10px;
+  width: 14px;
+  height: 14px;
+  background-color: var(--color-dark);
+  border: 3px solid var(--color-primary);
+  border-radius: 50%;
+  transform: translateX(50%);
+  z-index: 1;
+}
+
+.history-item__year {
+  position: absolute;
+  top: 1.25rem;
+  font-family: var(--font-secondary);
+  font-size: 2.5rem;
+  font-weight: 700;
+  color: var(--color-white);
+  line-height: 1;
+}
+
+/* 왼쪽 타임라인: 년도는 세로선 왼쪽에 */
+.history-timeline--left .history-item__year {
+  left: -8rem;
+  text-align: right;
+  width: 5rem;
+}
+
+/* 오른쪽 타임라인: 년도는 세로선 오른쪽에 */
+.history-timeline--right .history-item__year {
+  right: -8rem;
+  left: auto;
+  text-align: left;
+  width: 5rem;
+}
+
+.history-item__content {
+  padding: 0;
+  padding-top: 0.25rem;
+}
+
+.history-timeline--right .history-item__content {
+  text-align: right;
+}
+
+.history-item__event {
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+  padding: 0.75rem 0;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.history-timeline--left .history-item__event {
+  align-items: flex-start;
+}
+
+.history-timeline--right .history-item__event {
+  align-items: flex-end;
+}
+
+.history-item__event:last-child {
+  border-bottom: none;
+}
+
+.history-item__company {
+  font-weight: 600;
+  color: var(--color-white);
+  font-size: 1.25rem;
+}
+
+.history-item__desc {
+  color: rgba(255, 255, 255, 0.7);
+  font-size: 1.125rem;
+}
+
+.history-item__badge {
+  display: inline-block;
+  padding: 0.375rem 1rem;
+  font-size: 0.875rem;
+  font-weight: 500;
+  background-color: rgba(139, 115, 85, 0.3);
+  color: var(--color-primary);
+  border-radius: 20px;
+  margin-top: 0.375rem;
+}
+
+.history-item__badge--highlight {
+  background-color: var(--color-primary);
+  color: var(--color-white);
+}
+
+/* History Timeline Mobile */
+@media (max-width: 768px) {
+  .history-timeline {
+    max-width: 100%;
+  }
+
+  .history-timeline--left,
+  .history-timeline--right {
+    padding-left: 2.5rem;
+    padding-right: 0;
+    margin-left: 0;
+    margin-right: 0;
+  }
+
+  .history-timeline--left::before,
+  .history-timeline--right::before {
+    left: 6px;
+    right: auto;
+  }
+
+  .history-timeline--right .history-item::before {
+    left: -2.5rem;
+    right: auto;
+    transform: translateX(50%);
+  }
+
+  .history-item__year {
+    position: static;
+    font-size: 1.5rem;
+    margin-bottom: 0.75rem;
+  }
+
+  .history-timeline--left .history-item__year,
+  .history-timeline--right .history-item__year {
+    left: auto;
+    right: auto;
+    width: auto;
+    text-align: left;
+  }
+
+  .history-timeline--right .history-item__content {
+    text-align: left;
+  }
+
+  .history-timeline--right .history-item__event {
+    align-items: flex-start;
+  }
+}
+
+@media (max-width: 576px) {
+  .history-item__year {
+    font-size: 1.25rem;
+  }
+
+  .history-item__company {
+    font-size: 0.9375rem;
+  }
+
+  .history-item__desc {
+    font-size: 0.8125rem;
+  }
+}
+
 /* Back to Top Button */
 .back-to-top {
   position: fixed;
