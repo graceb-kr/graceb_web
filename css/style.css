@@ -1226,23 +1226,20 @@ button {
 
 .brand__wrapper {
   position: relative;
-  min-width: 2400px;
-  width: 100%;
+  width: 2400px;
   height: 1080px;
-  min-height: 1080px;
 }
 
 /* 브랜드 이미지들 - 슬라이더와 2/3 겹침 */
 .brand__left {
   position: absolute;
-  right: 64%;
+  right: 63%;
   top: 130px;
   z-index: 10;
   display: flex;
   flex-direction: column;
   align-items: flex-start;
   gap: 0;
-  transform-origin: left top;
 }
 
 .brand-left__image,
