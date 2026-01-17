@@ -34,9 +34,45 @@
         }
     }
 
-    // 드롭다운 메뉴 호버 처리 - CSS :hover로 대체됨
+    // 드롭다운 메뉴 호버 처리 - 0.3초 유지해야 열림/전환
     function setupDropdownHover() {
-        // 순수 CSS로 처리
+        if (window.innerWidth <= 768) return;
+
+        const menuItems = document.querySelectorAll('.header__menu-item--has-dropdown');
+        let currentOpen = null;
+        let hoverTimer = null;
+
+        menuItems.forEach(item => {
+            item.addEventListener('mouseenter', () => {
+                clearTimeout(hoverTimer);
+
+                // 0.3초 후에 전환
+                hoverTimer = setTimeout(() => {
+                    // 기존 열린 것 닫기
+                    if (currentOpen && currentOpen !== item) {
+                        currentOpen.classList.remove('dropdown-active');
+                    }
+                    item.classList.add('dropdown-active');
+                    currentOpen = item;
+                }, 300);
+            });
+
+            item.addEventListener('mouseleave', () => {
+                clearTimeout(hoverTimer);
+            });
+        });
+
+        // 메뉴 영역 벗어나면 닫기
+        const nav = document.querySelector('.header__nav');
+        if (nav) {
+            nav.addEventListener('mouseleave', () => {
+                clearTimeout(hoverTimer);
+                if (currentOpen) {
+                    currentOpen.classList.remove('dropdown-active');
+                    currentOpen = null;
+                }
+            });
+        }
     }
 
     // 컴포넌트 초기화

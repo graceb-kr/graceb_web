@@ -588,7 +588,7 @@ button {
   top: 70px;
 }
 
-.header__menu-item--has-dropdown:hover .header__dropdown {
+.header__menu-item--has-dropdown.dropdown-active .header__dropdown {
   opacity: 1;
   visibility: visible;
 }
