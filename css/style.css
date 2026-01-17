@@ -3243,6 +3243,10 @@ body .about__image img,
   scroll-margin-top: 100px;
 }
 
+.products__section + .products__section {
+  padding-top: 3rem;
+}
+
 .products__section:last-child,
 .portfolio__section:last-child {
   margin-bottom: 0;
