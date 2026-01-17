@@ -3277,11 +3277,17 @@ body .about__image img,
   color: var(--color-text);
 }
 
-/* Process Grid - S-flow Layout (1-2-3-4, then 8-7-6-5) */
+/* Process Section - Scale Responsive Wrapper */
+.guide__process-section {
+  position: relative;
+  overflow: hidden;
+}
+
 .guide__process-grid {
   --card-width: 140px;
   --card-gap: var(--spacing-xl);
   --curve-extend: 36px;
+  --grid-width: 800px;
   position: relative;
   display: grid;
   grid-template-columns: repeat(4, var(--card-width));
@@ -3289,6 +3295,9 @@ body .about__image img,
   padding: var(--spacing-lg) 0;
   justify-content: center;
   margin: 0 auto;
+  width: var(--grid-width);
+  left: 50%;
+  transform: translateX(-50%);
 }
 
 /* Process Item - Compact Card with Connector */
@@ -3469,18 +3478,12 @@ body .about__image img,
   }
 
   .guide__process-grid {
-    gap: var(--spacing-md);
+    transform: translateX(-50%) scale(0.9);
+    transform-origin: center top;
   }
 
-  .guide__process-item {
-    width: calc(50% - var(--spacing-md));
-    max-width: 160px;
-  }
-
-  /* Hide horizontal connectors on mobile */
-  .guide__process-item::after,
-  .guide__process-item::before {
-    display: none;
+  .guide__process-section {
+    height: calc(700px * 0.9);
   }
 
   .guide__hero-title {
@@ -3490,54 +3493,38 @@ body .about__image img,
   .guide__hero-desc {
     max-width: 100%;
   }
+}
 
-  .guide__process-step {
-    font-size: 0.65rem;
+@media (max-width: 650px) {
+  .guide__process-grid {
+    transform: translateX(-50%) scale(0.75);
+    transform-origin: center top;
   }
 
-  .guide__process-icon {
-    width: 40px;
-    height: 40px;
+  .guide__process-section {
+    height: calc(700px * 0.75);
+  }
+}
+
+@media (max-width: 550px) {
+  .guide__process-grid {
+    transform: translateX(-50%) scale(0.6);
+    transform-origin: center top;
   }
 
-  .guide__process-icon svg {
-    width: 18px;
-    height: 18px;
-  }
-
-  .guide__process-title-item {
-    font-size: 0.75rem;
-  }
-
-  .guide__process-desc {
-    font-size: 0.65rem;
+  .guide__process-section {
+    height: calc(700px * 0.6);
   }
 }
 
 @media (max-width: 480px) {
   .guide__process-grid {
-    gap: var(--spacing-sm);
+    transform: translateX(-50%) scale(0.5);
+    transform-origin: center top;
   }
 
-  .guide__process-item {
-    width: calc(50% - var(--spacing-sm));
-    padding: var(--spacing-sm);
-  }
-
-  .guide__process-step {
-    font-size: 1rem;
-    margin-bottom: var(--spacing-xs);
-  }
-
-  .guide__process-icon {
-    width: 36px;
-    height: 36px;
-    margin-bottom: var(--spacing-xs);
-  }
-
-  .guide__process-icon svg {
-    width: 18px;
-    height: 18px;
+  .guide__process-section {
+    height: calc(700px * 0.5);
   }
 
   .guide__hero-title {
