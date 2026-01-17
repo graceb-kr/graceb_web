@@ -824,6 +824,7 @@ button {
   text-align: center;
   color: var(--color-white);
   padding: 0 var(--container-padding);
+  padding-top: 130px;
   max-width: 900px;
 }
 
@@ -2281,6 +2282,10 @@ div.footer__social-links {
     font-size: clamp(2rem, 8vw, 3rem);
   }
 
+  .hero__content {
+    padding-top: 180px;
+  }
+
   .hero__scroll--desktop {
     display: none;
   }
@@ -2698,12 +2703,16 @@ body .about__image img,
 @media (max-width: 768px) {
   .page-hero {
     height: 40vh;
-    min-height: 300px;
+    min-height: 350px;
+  }
+
+  .page-hero__content {
+    padding-top: 120px;
   }
 
   .page-hero--simple {
     height: 50vh;
-    min-height: 350px;
+    min-height: 400px;
   }
 
   .page-hero__title-logo {
