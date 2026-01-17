@@ -4,6 +4,26 @@
    ======================================== */
 
 (function() {
+    // 경로 프리픽스 결정 (서브페이지면 ../, 루트면 ./)
+    function getBasePath() {
+        return isSubPage() ? '..' : '.';
+    }
+
+    // 컴포넌트 내 경로 변환
+    function convertPaths(html) {
+        const prefix = getBasePath();
+        // /images/, /pages/, /css/, /js/ 경로를 상대경로로 변환
+        return html
+            .replace(/href="\/images\//g, `href="${prefix}/images/`)
+            .replace(/src="\/images\//g, `src="${prefix}/images/`)
+            .replace(/href="\/pages\//g, `href="${prefix}/pages/`)
+            .replace(/href="\/css\//g, `href="${prefix}/css/`)
+            .replace(/src="\/js\//g, `src="${prefix}/js/`)
+            .replace(/href="\/#/g, `href="${prefix}/#`)
+            .replace(/href="\/"/g, `href="${prefix}/"`)
+            .replace(/href="\/([^"\/])/g, `href="${prefix}/$1`);
+    }
+
     // 컴포넌트 로드 함수
     async function loadComponent(elementId, componentPath) {
         const element = document.getElementById(elementId);
@@ -12,7 +32,9 @@
         try {
             const response = await fetch(componentPath);
             if (!response.ok) throw new Error(`Failed to load ${componentPath}`);
-            const html = await response.text();
+            let html = await response.text();
+            // 경로 변환
+            html = convertPaths(html);
             // insertAdjacentHTML 사용 (innerHTML보다 안전)
             element.insertAdjacentHTML('beforeend', html);
             return true;
@@ -86,7 +108,8 @@
 
     // 컴포넌트 초기화
     async function initComponents() {
-        const basePath = '/components';
+        const prefix = getBasePath();
+        const basePath = `${prefix}/components`;
 
         // 헤더와 푸터 병렬 로드 (성능 최적화)
         const [headerLoaded, footerLoaded] = await Promise.all([
