@@ -4,6 +4,19 @@
    ======================================== */
 
 (function() {
+    // ★ CSS 버전 - 여기만 바꾸면 모든 페이지에 적용됨
+    const CSS_VERSION = '20260117e';
+
+    // CSS 캐시 버스팅 적용
+    function applyCssVersion() {
+        const cssLinks = document.querySelectorAll('link[rel="stylesheet"][href*="style.css"]');
+        cssLinks.forEach(link => {
+            const href = link.getAttribute('href');
+            // 기존 버전 파라미터 제거 후 새 버전 추가
+            const baseHref = href.split('?')[0];
+            link.setAttribute('href', `${baseHref}?v=${CSS_VERSION}`);
+        });
+    }
     // 경로 프리픽스 결정 (서브페이지면 ../, 루트면 ./)
     function getBasePath() {
         return isSubPage() ? '..' : '.';
@@ -108,6 +121,9 @@
 
     // 컴포넌트 초기화
     async function initComponents() {
+        // CSS 버전 즉시 적용 (캐시 버스팅)
+        applyCssVersion();
+
         const prefix = getBasePath();
         const basePath = `${prefix}/components`;
 
