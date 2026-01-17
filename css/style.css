@@ -3019,6 +3019,21 @@ body .about__image img,
   color: rgba(255, 255, 255, 0.7);
 }
 
+/* Section Gradient Transitions */
+.section-gradient {
+  height: 100px;
+  width: 100%;
+  pointer-events: none;
+}
+
+.section-gradient--top {
+  background: linear-gradient(to bottom, var(--color-white) 0%, var(--color-primary) 100%);
+}
+
+.section-gradient--bottom {
+  background: linear-gradient(to bottom, var(--color-primary) 0%, var(--color-white) 100%);
+}
+
 /* Simple Page Hero - smaller height for pages with content images */
 .page-hero--simple {
   height: 60vh;
