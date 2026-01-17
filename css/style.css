@@ -419,6 +419,11 @@ button {
   height: 32px;
 }
 
+.header--scrolled .header__logo {
+  margin-top: 0;
+  margin-bottom: 0;
+}
+
 .header__nav {
   display: flex;
   justify-content: center;
