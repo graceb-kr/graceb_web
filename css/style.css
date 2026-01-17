@@ -1282,6 +1282,16 @@ button {
 .brand-left__stamp {
   max-width: 165px;
   margin-top: -1rem;
+  animation: spin-slow 40s linear infinite;
+}
+
+@keyframes spin-slow {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
 }
 
 .brand__content {
