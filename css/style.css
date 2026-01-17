@@ -2876,7 +2876,7 @@ body .about__image img,
 .page-hero__title {
   font-family: var(--font-primary);
   font-size: clamp(2rem, 5vw, 3.5rem);
-  font-weight: 300;
+  font-weight: 600;
   letter-spacing: 0.05em;
 }
 
