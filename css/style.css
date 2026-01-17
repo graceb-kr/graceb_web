@@ -2230,6 +2230,10 @@ div.footer__social-links {
   }
 
   /* 모바일에서 스크롤 시에도 중앙 정렬 유지 */
+  .header--scrolled {
+    height: 80px;
+  }
+
   .header--scrolled .header__inner {
     justify-content: center;
   }
@@ -2246,8 +2250,8 @@ div.footer__social-links {
     position: fixed;
     top: 0;
     right: -100%;
-    width: 100%;
-    height: 100vh;
+    width: 100% !important;
+    height: 100vh !important;
     background-color: rgba(0, 0, 0, 0.95);
     display: flex;
     flex-direction: column;
@@ -2258,6 +2262,8 @@ div.footer__social-links {
 
   .header--scrolled .header__nav {
     position: fixed;
+    width: 100% !important;
+    height: 100vh !important;
   }
 
   .header__nav.active {
@@ -2267,12 +2273,42 @@ div.footer__social-links {
   .header__menu {
     flex-direction: column;
     align-items: center;
-    gap: 2rem;
+    gap: 2rem !important;
+    width: auto !important;
+  }
+
+  .header--scrolled .header__menu {
+    gap: 2rem !important;
+    width: auto !important;
+  }
+
+  .header__menu-item {
+    padding: 0 !important;
+    height: auto !important;
+    flex-direction: column !important;
+    align-items: center !important;
+  }
+
+  /* 모바일에서 기본 밑줄 숨기기 */
+  .header__menu-item--has-dropdown::after {
+    display: none !important;
+  }
+
+  .header--scrolled .header__menu-item {
+    padding: 0 !important;
+    height: auto !important;
+    flex-direction: column !important;
+    align-items: center !important;
   }
 
   .header__link {
-    font-size: 1.5rem;
-    color: var(--color-white);
+    font-size: 1.5rem !important;
+    color: var(--color-white) !important;
+  }
+
+  .header--scrolled .header__link {
+    font-size: 1.5rem !important;
+    color: var(--color-white) !important;
   }
 
   .header__hamburger {
@@ -2286,6 +2322,98 @@ div.footer__social-links {
   /* Hide store link on mobile */
   .header__store-link {
     display: none;
+  }
+
+  /* Mobile dropdown - 심플 리스트 */
+  .header__menu-item--has-dropdown .header__link {
+    position: relative !important;
+  }
+
+  .header__menu-item--has-dropdown.mobile-open .header__link::after {
+    content: "" !important;
+    display: block !important;
+    width: 50px !important;
+    height: 1px !important;
+    background-color: rgba(255, 255, 255, 0.3) !important;
+    margin: 0.5rem auto 0 auto !important;
+    position: static !important;
+  }
+
+  .header__dropdown {
+    position: static !important;
+    top: auto !important;
+    left: auto !important;
+    right: auto !important;
+    width: auto !important;
+    background: none !important;
+    box-shadow: none !important;
+    z-index: auto !important;
+    min-height: auto !important;
+    max-height: 0 !important;
+    opacity: 0 !important;
+    overflow: hidden !important;
+    transition: none !important;
+    visibility: visible !important;
+    display: block !important;
+  }
+
+  .header__menu-item--has-dropdown.mobile-open .header__dropdown {
+    max-height: 500px !important;
+    opacity: 1 !important;
+    transition: max-height 0.3s ease, opacity 0.3s ease !important;
+  }
+
+  .header__dropdown-inner {
+    display: block !important;
+    min-height: auto !important;
+    background: none !important;
+    padding: 0.5rem 0 !important;
+  }
+
+  .header__dropdown-left {
+    display: none !important;
+  }
+
+  .header__dropdown-right {
+    display: flex !important;
+    flex-direction: column !important;
+    width: auto !important;
+    padding: 0 !important;
+    background: none !important;
+    align-items: center !important;
+    gap: 0 !important;
+  }
+
+  .header__dropdown-group {
+    display: flex !important;
+    flex-direction: column !important;
+    align-items: center !important;
+    margin: 0 !important;
+    padding: 0 !important;
+    width: auto !important;
+    gap: 0 !important;
+  }
+
+  .header__dropdown-group-title {
+    display: none !important;
+  }
+
+  .header__dropdown-link {
+    display: block !important;
+    padding: 0.25rem 0 !important;
+    background: none !important;
+    width: auto !important;
+  }
+
+  .header__dropdown-link-title {
+    font-size: 1rem !important;
+    color: rgba(255, 255, 255, 0.5) !important;
+    font-weight: 400 !important;
+  }
+
+  .header__dropdown-link-sub,
+  .header__dropdown-link::after {
+    display: none !important;
   }
 
   .hero__title {

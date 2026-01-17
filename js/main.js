@@ -114,7 +114,7 @@ function initHeroSlider() {
             if (video) {
                 if (i === currentSlide) {
                     video.currentTime = 0;
-                    video.play();
+                    video.play().catch(() => {});
                 } else {
                     video.pause();
                 }
@@ -156,6 +156,8 @@ function initHeroSlider() {
 /* ==================== Header ==================== */
 function initHeader() {
     const header = document.getElementById('header');
+    if (!header) return;
+
     let lastScrollY = 0;
 
     function handleScroll() {
@@ -177,7 +179,7 @@ function initHeader() {
 
 /* ==================== Mobile Menu ==================== */
 function initMobileMenu() {
-    const hamburger = document.getElementById('hamburger');
+    const hamburger = document.getElementById('mobileBtn');
     const nav = document.getElementById('nav');
     const navLinks = document.querySelectorAll('.header__link');
 
@@ -191,10 +193,41 @@ function initMobileMenu() {
 
     // Close menu when clicking a link
     navLinks.forEach(link => {
-        link.addEventListener('click', function() {
+        link.addEventListener('click', function(e) {
+            // 모바일에서 드롭다운 메뉴 클릭 시 아코디언 토글
+            if (window.innerWidth <= 768) {
+                const menuItem = this.closest('.header__menu-item--has-dropdown');
+                if (menuItem) {
+                    e.preventDefault();
+                    // 다른 열린 메뉴 닫기
+                    document.querySelectorAll('.header__menu-item--has-dropdown.mobile-open').forEach(item => {
+                        if (item !== menuItem) {
+                            item.classList.remove('mobile-open');
+                        }
+                    });
+                    // 현재 메뉴 토글
+                    menuItem.classList.toggle('mobile-open');
+                    return;
+                }
+            }
             hamburger.classList.remove('active');
             nav.classList.remove('active');
             document.body.style.overflow = '';
+        });
+    });
+
+    // 서브링크 클릭 시 메뉴 닫기
+    const dropdownLinks = document.querySelectorAll('.header__dropdown-link');
+    dropdownLinks.forEach(link => {
+        link.addEventListener('click', function() {
+            if (window.innerWidth <= 768) {
+                hamburger.classList.remove('active');
+                nav.classList.remove('active');
+                document.body.style.overflow = '';
+                document.querySelectorAll('.header__menu-item--has-dropdown.mobile-open').forEach(item => {
+                    item.classList.remove('mobile-open');
+                });
+            }
         });
     });
 
@@ -211,7 +244,8 @@ function initMobileMenu() {
 /* ==================== Smooth Scroll ==================== */
 function initSmoothScroll() {
     const links = document.querySelectorAll('a[href^="#"]');
-    const headerHeight = document.getElementById('header').offsetHeight;
+    const header = document.getElementById('header');
+    const headerHeight = header ? header.offsetHeight : 80;
 
     links.forEach(link => {
         link.addEventListener('click', function(e) {
