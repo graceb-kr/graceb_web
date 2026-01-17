@@ -1225,7 +1225,7 @@ button {
 /* ==================== BRAND ==================== */
 .brand-section {
   position: relative;
-  padding: 2rem 0;
+  padding: 4rem 0;
   min-height: auto;
   overflow: hidden;
 }
@@ -2142,6 +2142,63 @@ div.footer__social-links {
 }
 
 /* ==================== RESPONSIVE ==================== */
+
+/* Brand Section Responsive */
+@media (max-width: 1800px) {
+  .brand__wrapper {
+    top: 50%;
+    transform: translate(-50%, -50%) scale(0.85);
+    transform-origin: center center;
+  }
+
+  .brand-section {
+    padding: 2rem 0;
+    height: calc(702px * 0.85 + 4rem);
+    min-height: unset;
+  }
+}
+
+@media (max-width: 1500px) {
+  .brand__wrapper {
+    top: 50%;
+    transform: translate(-50%, -50%) scale(0.7);
+    transform-origin: center center;
+  }
+
+  .brand-section {
+    padding: 2rem 0;
+    height: calc(702px * 0.7 + 4rem);
+    min-height: unset;
+  }
+}
+
+@media (max-width: 1200px) {
+  .brand__wrapper {
+    top: 50%;
+    transform: translate(-50%, -50%) scale(0.55);
+    transform-origin: center center;
+  }
+
+  .brand-section {
+    padding: 2rem 0;
+    height: calc(702px * 0.55 + 4rem);
+    min-height: unset;
+  }
+}
+
+@media (max-width: 900px) {
+  .brand__wrapper {
+    top: 50%;
+    transform: translate(-50%, -50%) scale(0.45);
+    transform-origin: center center;
+  }
+
+  .brand-section {
+    padding: 2rem 0;
+    height: calc(702px * 0.45 + 4rem);
+    min-height: unset;
+  }
+}
 
 /* Tablet */
 @media (max-width: 1024px) {
