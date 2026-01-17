@@ -2216,7 +2216,13 @@ div.footer__social-links {
   .header__inner {
     flex-direction: row;
     justify-content: center;
+    align-items: center;
+    padding-top: 0;
     gap: 0;
+  }
+
+  .header__logo {
+    margin: 0;
   }
 
   .header__logo-img {
@@ -2226,6 +2232,10 @@ div.footer__social-links {
   /* 모바일에서 스크롤 시에도 중앙 정렬 유지 */
   .header--scrolled .header__inner {
     justify-content: center;
+  }
+
+  .header--scrolled .header__logo {
+    margin: 0;
   }
 
   .header--scrolled .header__logo-img {
@@ -2284,6 +2294,10 @@ div.footer__social-links {
 
   .hero__content {
     padding-top: 180px;
+  }
+
+  .hero__nav {
+    display: none;
   }
 
   .hero__scroll--desktop {
