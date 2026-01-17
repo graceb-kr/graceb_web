@@ -7,13 +7,14 @@
     // 컴포넌트 로드 함수
     async function loadComponent(elementId, componentPath) {
         const element = document.getElementById(elementId);
-        if (!element) return;
+        if (!element) return false;
 
         try {
             const response = await fetch(componentPath);
             if (!response.ok) throw new Error(`Failed to load ${componentPath}`);
             const html = await response.text();
-            element.innerHTML = html;
+            // insertAdjacentHTML 사용 (innerHTML보다 안전)
+            element.insertAdjacentHTML('beforeend', html);
             return true;
         } catch (error) {
             console.error(`Error loading component: ${error.message}`);
@@ -87,9 +88,11 @@
     async function initComponents() {
         const basePath = '/components';
 
-        // 헤더와 푸터 로드
-        const headerLoaded = await loadComponent('header-placeholder', `${basePath}/header.html`);
-        const footerLoaded = await loadComponent('footer-placeholder', `${basePath}/footer.html`);
+        // 헤더와 푸터 병렬 로드 (성능 최적화)
+        const [headerLoaded, footerLoaded] = await Promise.all([
+            loadComponent('header-placeholder', `${basePath}/header.html`),
+            loadComponent('footer-placeholder', `${basePath}/footer.html`)
+        ]);
 
         // 컴포넌트 로드 후 초기화
         if (headerLoaded || footerLoaded) {

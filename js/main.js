@@ -54,10 +54,17 @@ function fixFooterSocial() {
     // 즉시 실행
     applyStyles();
 
-    // 0.5초 후 다시 실행 (Cafe24 등에서 늦게 스타일 덮어씌우는 경우 대비)
-    setTimeout(applyStyles, 500);
-    setTimeout(applyStyles, 1000);
-    setTimeout(applyStyles, 2000);
+    // MutationObserver로 DOM 변경 감지 시 재적용 (Cafe24 등에서 늦게 스타일 덮어씌우는 경우 대비)
+    const footerChannels = document.querySelector('.footer-channels');
+    if (footerChannels) {
+        const observer = new MutationObserver(() => {
+            applyStyles();
+        });
+        observer.observe(footerChannels, { attributes: true, childList: true, subtree: true });
+
+        // 3초 후 observer 해제 (무한 감시 방지)
+        setTimeout(() => observer.disconnect(), 3000);
+    }
 }
 
 /* ==================== Hero Slider ==================== */
