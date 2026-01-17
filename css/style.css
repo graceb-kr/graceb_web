@@ -1224,8 +1224,8 @@ button {
 /* ==================== BRAND ==================== */
 .brand-section {
   position: relative;
-  padding: 0;
-  min-height: calc(100vh - 200px);
+  padding: 2rem 0;
+  min-height: auto;
   overflow-x: auto;
   overflow-y: hidden;
 }
@@ -1233,14 +1233,14 @@ button {
 .brand__wrapper {
   position: relative;
   width: 2400px;
-  height: 1080px;
+  height: 702px;
 }
 
 /* 브랜드 이미지들 - 슬라이더와 2/3 겹침 */
 .brand__left {
   position: absolute;
-  right: 63%;
-  top: 130px;
+  left: 33%;
+  top: 85px;
   z-index: 10;
   display: flex;
   flex-direction: column;
@@ -1257,29 +1257,29 @@ button {
 }
 
 .brand-left__image {
-  max-width: 200px;
-  margin-bottom: 4.5rem;
+  max-width: 130px;
+  margin-bottom: 2.9rem;
 }
 
 .brand-left__logo {
-  max-width: 450px;
+  max-width: 290px;
 }
 
 .brand-left__description {
-  font-size: calc(0.95rem + 2px);
+  font-size: 0.875rem;
   line-height: 1.8;
   color: var(--color-text-light);
-  margin: 4.5rem 0 11rem 0;
+  margin: 2.9rem 0 7rem 0;
 }
 
 .brand-left__guideline {
-  max-width: 250px;
-  margin-bottom: 13.5rem;
+  max-width: 160px;
+  margin-bottom: 8.5rem;
 }
 
 .brand-left__stamp {
-  max-width: 140px;
-  margin-top: 5rem;
+  max-width: 90px;
+  margin-top: 3.2rem;
 }
 
 .brand__content {
@@ -1322,7 +1322,7 @@ button {
 
 .brand__slider {
   position: absolute;
-  right: 0%;
+  left: 35%;
   top: 50%;
   transform: translateY(-50%);
   width: 80%;
@@ -1339,21 +1339,21 @@ button {
 }
 
 .brand__slider .swiper-slide {
-  width: 1920px;
-  height: 1080px;
+  width: 1248px;
+  height: 702px;
 }
 
 .brand__slider .product-card {
-  width: 1920px;
-  height: 1080px;
+  width: 1248px;
+  height: 702px;
   overflow: hidden;
   line-height: 0;
   font-size: 0;
 }
 
 .brand__slider .product-card img {
-  width: 1920px;
-  height: 1080px;
+  width: 1248px;
+  height: 702px;
   display: block;
 }
 
