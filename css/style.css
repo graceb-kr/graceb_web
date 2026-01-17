@@ -2981,6 +2981,44 @@ body .about__image img,
   color: rgba(255, 255, 255, 0.7);
 }
 
+/* Corporate Standards Dark Theme */
+.page-section--dark .corporate__standards {
+  max-width: 1100px;
+  margin: 0 auto;
+}
+
+.page-section--dark .corporate-item {
+  background-color: rgba(255, 255, 255, 0.05);
+}
+
+.page-section--dark .corporate-item:hover {
+  background-color: rgba(255, 255, 255, 0.08);
+}
+
+.page-section--dark .corporate-item__icon {
+  border-color: var(--color-accent);
+  color: var(--color-accent);
+}
+
+.page-section--dark .corporate-item__content h4 {
+  color: var(--color-white);
+}
+
+.page-section--dark .corporate-item__content h4 span {
+  display: inline-block;
+  background-color: rgba(255, 255, 255, 0.15);
+  padding: 0.2rem 0.5rem;
+  border-radius: 4px;
+  font-size: 0.75rem;
+  font-weight: 500;
+  margin-top: 0.4rem;
+  opacity: 1;
+}
+
+.page-section--dark .corporate-item__content p {
+  color: rgba(255, 255, 255, 0.7);
+}
+
 /* Simple Page Hero - smaller height for pages with content images */
 .page-hero--simple {
   height: 60vh;
