@@ -1227,14 +1227,15 @@ button {
   position: relative;
   padding: 2rem 0;
   min-height: auto;
-  overflow-x: auto;
-  overflow-y: hidden;
+  overflow: hidden;
 }
 
 .brand__wrapper {
   position: relative;
   width: 2400px;
   height: 702px;
+  left: 50%;
+  transform: translateX(-50%);
 }
 
 /* 브랜드 이미지들 - 슬라이더와 2/3 겹침 */
