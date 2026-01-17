@@ -223,7 +223,7 @@
             <h3 class="guide__process-title">OEM 제작 프로세스</h3>
           </div>
 
-          <div class="guide__process-grid" data-process-grid>
+          <div class="guide__process-grid guide__process-grid--oem" data-process-grid>
             <!-- Step 01 -->
             <div class="guide__process-item">
               <div class="guide__process-icon">
@@ -451,8 +451,12 @@
               items.forEach((item, index) => {
                 setTimeout(() => {
                   item.classList.add('active');
-                }, index * 120); // 0.12s interval between each item
+                }, index * 100);
               });
+              // Show C-curve after 4th item animates
+              setTimeout(() => {
+                grid.classList.add('curve-active');
+              }, 400);
               observer.disconnect();
             }
           });

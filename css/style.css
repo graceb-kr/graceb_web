@@ -3218,31 +3218,112 @@ body .about__image img,
   color: var(--color-text);
 }
 
-/* Process Grid - Clean Horizontal Flow */
+/* Process Grid - S-flow Layout (1-2-3-4, then 8-7-6-5) */
 .guide__process-grid {
-  display: flex;
-  flex-wrap: wrap;
+  --card-width: 140px;
+  --card-gap: var(--spacing-xl);
+  --curve-extend: 36px;
+  position: relative;
+  display: grid;
+  grid-template-columns: repeat(4, var(--card-width));
+  gap: var(--card-gap) var(--card-gap);
+  padding: var(--spacing-lg) 0;
   justify-content: center;
-  gap: var(--spacing-lg) var(--spacing-md);
-  padding: var(--spacing-xl) 0;
-  max-width: 100%;
   margin: 0 auto;
 }
 
-/* Process Item - Clean Card */
+/* Process Item - Compact Card with Connector */
 .guide__process-item {
+  position: relative;
   text-align: center;
-  padding: var(--spacing-lg);
+  padding: var(--spacing-md);
   background: var(--color-white);
-  border-radius: 16px;
-  flex: 1 1 calc(25% - var(--spacing-md));
-  min-width: 220px;
-  max-width: 280px;
-  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.06);
+  border-radius: 12px;
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.05);
   opacity: 0;
-  transform: translateY(24px);
-  transition: opacity 0.7s ease, transform 0.7s ease;
+  transform: translateY(20px);
+  transition: opacity 0.6s ease, transform 0.6s ease, box-shadow 0.3s ease;
 }
+
+/* S-flow: Second row reversed order (5,6,7,8 becomes 8,7,6,5 visually) */
+.guide__process-item:nth-child(5) { order: 8; }
+.guide__process-item:nth-child(6) { order: 7; }
+.guide__process-item:nth-child(7) { order: 6; }
+.guide__process-item:nth-child(8) { order: 5; }
+
+/* Connector Line between items (horizontal) - first row: right arrow */
+.guide__process-item::after {
+  content: '';
+  position: absolute;
+  top: 50%;
+  right: calc(-1 * var(--card-gap));
+  width: var(--card-gap);
+  height: 2px;
+  background: var(--color-accent);
+  transform: translateY(-50%);
+  opacity: 0;
+  transition: opacity 0.5s ease 0.3s;
+}
+
+/* Hide default arrow for all items */
+.guide__process-item::before {
+  display: none;
+}
+
+/* Second row: left arrow (reversed direction) */
+.guide__process-item:nth-child(n+5)::after {
+  right: auto;
+  left: calc(-1 * var(--card-gap));
+}
+
+/* Hide connector on last item only */
+.guide__process-item:last-child::after {
+  display: none;
+}
+
+/* 4th item: no horizontal connector, curve handles it */
+.guide__process-item:nth-child(4)::after {
+  display: none;
+}
+
+/* 4th item: S-curve (vertical connector going down) */
+.guide__process-item:nth-child(4)::before {
+  display: block;
+  content: '';
+  position: absolute;
+  top: 50%;
+  right: -22px;
+  width: 22px;
+  height: calc(100% + var(--card-gap));
+  border: 2px solid var(--color-accent);
+  border-left: none;
+  border-radius: 0 12px 12px 0;
+  opacity: 0;
+  transition: opacity 0.5s ease 0.3s;
+}
+
+/* OEM Grid (7 items) - S-flow: 5,6,7 displayed as 7,6,5 */
+.guide__process-grid--oem .guide__process-item:nth-child(5) { order: 7; }
+.guide__process-grid--oem .guide__process-item:nth-child(6) { order: 6; }
+.guide__process-grid--oem .guide__process-item:nth-child(7) { order: 5; }
+
+/* OEM: Force second row to have 3 items by using grid-column */
+.guide__process-grid--oem .guide__process-item:nth-child(5),
+.guide__process-grid--oem .guide__process-item:nth-child(6),
+.guide__process-grid--oem .guide__process-item:nth-child(7) {
+  grid-row: 2;
+}
+
+/* OEM: Second row offset - use padding on grid instead of margin */
+.guide__process-grid--oem::after {
+  content: '';
+  grid-row: 2;
+  grid-column: 1;
+  width: calc((var(--card-width) + var(--card-gap)) / 2 - var(--card-gap));
+}
+
+/* OEM: Second row connectors go left (reversed direction like ODM) */
+/* Already inherited from nth-child(n+5) rule */
 
 /* Active state - when in view */
 .guide__process-item.active {
@@ -3250,56 +3331,61 @@ body .about__image img,
   transform: translateY(0);
 }
 
-/* Hover Effect - subtle */
+.guide__process-item.active::after,
+.guide__process-item.active::before {
+  opacity: 1;
+}
+
+/* Hover Effect - subtle lift */
 .guide__process-item.active:hover {
-  transform: translateY(-4px);
-  box-shadow: 0 12px 32px rgba(0, 0, 0, 0.08);
+  transform: translateY(-3px);
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.08);
 }
 
 /* Process Step Number */
 .guide__process-step {
-  font-size: 1.5rem;
-  font-weight: 700;
-  font-style: italic;
-  color: var(--color-primary);
-  margin-bottom: var(--spacing-sm);
+  font-size: 0.7rem;
+  font-weight: 600;
+  letter-spacing: 0.05em;
+  color: var(--color-accent);
+  margin-bottom: var(--spacing-xs);
   display: block;
 }
 
 /* Process Icon */
 .guide__process-icon {
-  width: 60px;
-  height: 60px;
-  margin: 0 auto var(--spacing-md);
-  background: var(--color-background);
-  border-radius: 14px;
+  width: 44px;
+  height: 44px;
+  margin: 0 auto var(--spacing-sm);
+  background: linear-gradient(135deg, var(--color-primary), #2a2a2a);
+  border-radius: 50%;
   display: flex;
   align-items: center;
   justify-content: center;
 }
 
 .guide__process-icon svg {
-  width: 30px;
-  height: 30px;
-  stroke: var(--color-text-light);
+  width: 20px;
+  height: 20px;
+  stroke: var(--color-white);
   stroke-width: 1.5;
   fill: none;
 }
 
 /* Process Step Title */
 .guide__process-title-item {
-  font-size: 1rem;
+  font-size: 0.8rem;
   font-weight: 600;
   color: var(--color-text);
-  margin-bottom: var(--spacing-xs);
-  line-height: 1.4;
+  margin-bottom: 4px;
+  line-height: 1.3;
 }
 
 /* Process Step Description */
 .guide__process-desc {
-  font-size: 0.875rem;
+  font-size: 0.7rem;
   color: var(--color-text-light);
-  line-height: 1.7;
+  line-height: 1.5;
 }
 
 /* Guide Section Divider */
@@ -3318,9 +3404,16 @@ body .about__image img,
 /* Guide Responsive */
 @media (max-width: 1024px) {
   .guide__process-item {
-    flex: 1 1 calc(25% - var(--spacing-md));
-    min-width: 180px;
-    max-width: 240px;
+    width: 120px;
+  }
+
+  .guide__process-item::after {
+    right: -14px;
+    width: 20px;
+  }
+
+  .guide__process-item::before {
+    right: -16px;
   }
 
   .guide__hero-title {
@@ -3344,10 +3437,14 @@ body .about__image img,
   }
 
   .guide__process-item {
-    flex: 1 1 calc(50% - var(--spacing-md));
-    min-width: 140px;
-    max-width: none;
-    padding: var(--spacing-md);
+    width: calc(50% - var(--spacing-md));
+    max-width: 160px;
+  }
+
+  /* Hide horizontal connectors on mobile */
+  .guide__process-item::after,
+  .guide__process-item::before {
+    display: none;
   }
 
   .guide__hero-title {
@@ -3359,25 +3456,25 @@ body .about__image img,
   }
 
   .guide__process-step {
-    font-size: 1.25rem;
+    font-size: 0.65rem;
   }
 
   .guide__process-icon {
-    width: 50px;
-    height: 50px;
+    width: 40px;
+    height: 40px;
   }
 
   .guide__process-icon svg {
-    width: 24px;
-    height: 24px;
+    width: 18px;
+    height: 18px;
   }
 
   .guide__process-title-item {
-    font-size: 0.9rem;
+    font-size: 0.75rem;
   }
 
   .guide__process-desc {
-    font-size: 0.8rem;
+    font-size: 0.65rem;
   }
 }
 
@@ -3387,7 +3484,7 @@ body .about__image img,
   }
 
   .guide__process-item {
-    flex: 1 1 calc(50% - var(--spacing-sm));
+    width: calc(50% - var(--spacing-sm));
     padding: var(--spacing-sm);
   }
 
