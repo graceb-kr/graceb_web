@@ -43,6 +43,14 @@
         let hoverTimer = null;
 
         menuItems.forEach(item => {
+            // 드롭다운 메뉴 링크 클릭 방지
+            const link = item.querySelector('.header__link');
+            if (link) {
+                link.addEventListener('click', (e) => {
+                    e.preventDefault();
+                });
+            }
+
             item.addEventListener('mouseenter', () => {
                 clearTimeout(hoverTimer);
 
