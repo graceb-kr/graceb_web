@@ -208,6 +208,7 @@ button {
   letter-spacing: 0.1em;
   text-transform: uppercase;
   color: var(--color-accent);
+  margin-top: var(--spacing-xl);
   margin-bottom: var(--spacing-sm);
 }
 
@@ -3301,29 +3302,6 @@ body .about__image img,
   opacity: 0;
   transition: opacity 0.5s ease 0.3s;
 }
-
-/* OEM Grid (7 items) - S-flow: 5,6,7 displayed as 7,6,5 */
-.guide__process-grid--oem .guide__process-item:nth-child(5) { order: 7; }
-.guide__process-grid--oem .guide__process-item:nth-child(6) { order: 6; }
-.guide__process-grid--oem .guide__process-item:nth-child(7) { order: 5; }
-
-/* OEM: Force second row to have 3 items by using grid-column */
-.guide__process-grid--oem .guide__process-item:nth-child(5),
-.guide__process-grid--oem .guide__process-item:nth-child(6),
-.guide__process-grid--oem .guide__process-item:nth-child(7) {
-  grid-row: 2;
-}
-
-/* OEM: Second row offset - use padding on grid instead of margin */
-.guide__process-grid--oem::after {
-  content: '';
-  grid-row: 2;
-  grid-column: 1;
-  width: calc((var(--card-width) + var(--card-gap)) / 2 - var(--card-gap));
-}
-
-/* OEM: Second row connectors go left (reversed direction like ODM) */
-/* Already inherited from nth-child(n+5) rule */
 
 /* Active state - when in view */
 .guide__process-item.active {
