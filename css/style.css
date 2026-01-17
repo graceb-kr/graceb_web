@@ -3288,16 +3288,13 @@ body .about__image img,
   --card-gap: var(--spacing-xl);
   --curve-extend: 36px;
   --grid-width: 800px;
-  position: relative;
   display: grid;
   grid-template-columns: repeat(4, var(--card-width));
   gap: var(--card-gap) var(--card-gap);
   padding: var(--spacing-lg) 0;
   justify-content: center;
   margin: 0 auto;
-  width: var(--grid-width);
-  left: 50%;
-  transform: translateX(-50%);
+  max-width: var(--grid-width);
 }
 
 /* Process Item - Compact Card with Connector */
@@ -3478,6 +3475,8 @@ body .about__image img,
   }
 
   .guide__process-grid {
+    position: relative;
+    left: 50%;
     transform: translateX(-50%) scale(0.9);
     transform-origin: center top;
   }
@@ -3498,7 +3497,6 @@ body .about__image img,
 @media (max-width: 650px) {
   .guide__process-grid {
     transform: translateX(-50%) scale(0.75);
-    transform-origin: center top;
   }
 
   .guide__process-section {
@@ -3509,7 +3507,6 @@ body .about__image img,
 @media (max-width: 550px) {
   .guide__process-grid {
     transform: translateX(-50%) scale(0.6);
-    transform-origin: center top;
   }
 
   .guide__process-section {
@@ -3520,7 +3517,6 @@ body .about__image img,
 @media (max-width: 480px) {
   .guide__process-grid {
     transform: translateX(-50%) scale(0.5);
-    transform-origin: center top;
   }
 
   .guide__process-section {
