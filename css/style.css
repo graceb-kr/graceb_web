@@ -2807,6 +2807,14 @@ body .about__image img,
   margin-bottom: var(--spacing-xl);
 }
 
+.products__search-label {
+  text-align: center;
+  font-size: 1.5rem;
+  font-weight: 600;
+  color: var(--color-text);
+  margin-bottom: var(--spacing-md);
+}
+
 .products__search-box {
   position: relative;
   max-width: 500px;
@@ -2832,14 +2840,12 @@ body .about__image img,
   border: 1px solid var(--color-border);
   border-radius: 50px;
   background: var(--color-white);
-  transition: border-color var(--transition-fast),
-    box-shadow var(--transition-fast);
+  box-shadow: 0 0 0 3px rgba(0, 0, 0, 0.05);
 }
 
 .products__search-input:focus {
   outline: none;
   border-color: var(--color-primary);
-  box-shadow: 0 0 0 3px rgba(0, 0, 0, 0.05);
 }
 
 .products__search-input::placeholder {
