@@ -5,7 +5,7 @@
 
 (function() {
     // ★ CSS 버전 - 여기만 바꾸면 모든 페이지에 적용됨
-    const CSS_VERSION = '20260117e';
+    const CSS_VERSION = '20260120a';
 
     // CSS 캐시 버스팅 적용
     function applyCssVersion() {
