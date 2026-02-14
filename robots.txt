@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://graceb.kr/sitemap.xml
+Sitemap: https://www.graceb.kr/sitemap.xml
