@@ -3146,7 +3146,11 @@ body .about__image img,
   height: 36px;
   background: rgba(0, 0, 0, 0.4);
   border-radius: 50%;
-  transition: background var(--transition-fast);
+  opacity: 0;
+  pointer-events: none;
+  transform: translateY(-50%) scale(0.9);
+  transition: opacity var(--transition-fast), background var(--transition-fast),
+    transform var(--transition-fast);
 }
 
 .portfolio-swiper-prev:hover,
@@ -3167,6 +3171,57 @@ body .about__image img,
 
 .portfolio-swiper-next {
   right: 10px;
+}
+
+.portfolio__image:hover .portfolio-swiper-prev,
+.portfolio__image:hover .portfolio-swiper-next,
+.portfolio__image:focus-within .portfolio-swiper-prev,
+.portfolio__image:focus-within .portfolio-swiper-next {
+  opacity: 1;
+  pointer-events: auto;
+  transform: translateY(-50%) scale(1);
+}
+
+.products-swiper-prev,
+.products-swiper-next {
+  width: 34px;
+  height: 34px;
+  background: rgba(0, 0, 0, 0.28);
+  border-radius: 50%;
+  opacity: 0;
+  pointer-events: none;
+  transform: translateY(-50%) scale(0.9);
+  transition: opacity var(--transition-fast), background var(--transition-fast),
+    transform var(--transition-fast);
+}
+
+.products-swiper-prev:hover,
+.products-swiper-next:hover {
+  background: rgba(0, 0, 0, 0.42);
+}
+
+.products-swiper-prev::after,
+.products-swiper-next::after {
+  font-size: 12px;
+  font-weight: 600;
+  color: var(--color-white);
+}
+
+.products-swiper-prev {
+  left: 8px;
+}
+
+.products-swiper-next {
+  right: 8px;
+}
+
+.products__image:hover .products-swiper-prev,
+.products__image:hover .products-swiper-next,
+.products__image:focus-within .products-swiper-prev,
+.products__image:focus-within .products-swiper-next {
+  opacity: 1;
+  pointer-events: auto;
+  transform: translateY(-50%) scale(1);
 }
 
 /* Hide navigation on single slide */
@@ -3194,6 +3249,17 @@ body .about__image img,
 
   .portfolio-swiper-next {
     right: 8px;
+  }
+
+  .products-swiper-prev,
+  .products-swiper-next {
+    width: 28px;
+    height: 28px;
+  }
+
+  .products-swiper-prev::after,
+  .products-swiper-next::after {
+    font-size: 10px;
   }
 }
 
@@ -3351,6 +3417,30 @@ body .about__image img,
   aspect-ratio: 1 / 1;
 }
 
+.products-swiper {
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+}
+
+.products-swiper .swiper-wrapper {
+  height: 100%;
+}
+
+.products-swiper .swiper-slide {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
+  overflow: hidden;
+}
+
+.products-swiper .swiper-slide img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
 .products__image img {
   width: 100%;
   height: 100%;
@@ -3410,6 +3500,7 @@ body .about__image img,
   .products__section-title {
     font-size: 1.25rem;
   }
+
 }
 
 @media (max-width: 480px) {
@@ -3526,9 +3617,14 @@ body .about__image img,
   right: calc(-1 * var(--card-gap));
   width: var(--card-gap);
   height: 2px;
-  background: var(--color-accent);
+  background-image: repeating-linear-gradient(
+    90deg,
+    var(--color-accent) 0 6px,
+    transparent 6px 12px
+  );
   transform: translateY(-50%);
   opacity: 0;
+  will-change: background-position;
   transition: opacity 0.5s ease 0.3s;
 }
 
@@ -3562,10 +3658,26 @@ body .about__image img,
   right: -22px;
   width: 22px;
   height: calc(100% + var(--card-gap));
-  border: 2px solid var(--color-accent);
-  border-left: none;
   border-radius: 0 12px 12px 0;
+  background:
+    repeating-linear-gradient(
+      90deg,
+      var(--color-accent) 0 6px,
+      transparent 6px 12px
+    ) left top / calc(100% - 10px) 2px repeat-x,
+    repeating-linear-gradient(
+      180deg,
+      var(--color-accent) 0 6px,
+      transparent 6px 12px
+    ) right 0 top 10px / 2px calc(100% - 20px) repeat-y,
+    repeating-linear-gradient(
+      90deg,
+      var(--color-accent) 0 6px,
+      transparent 6px 12px
+    ) left bottom / calc(100% - 10px) 2px repeat-x;
+  overflow: hidden;
   opacity: 0;
+  will-change: background-position;
   transition: opacity 0.5s ease 0.3s;
 }
 
@@ -3580,10 +3692,70 @@ body .about__image img,
   opacity: 1;
 }
 
+.guide__process-item:not(:nth-child(4)).active::after {
+  animation: guideFlowForward 2s linear infinite;
+}
+
+.guide__process-item:nth-child(n+5).active::after {
+  animation-name: guideFlowReverse;
+}
+
+.guide__process-item:nth-child(4).active::before {
+  animation: guideCurveDash 2s linear infinite;
+}
+
 /* Hover Effect - subtle lift */
 .guide__process-item.active:hover {
   transform: translateY(-3px);
   box-shadow: 0 8px 24px rgba(0, 0, 0, 0.08);
+}
+
+.guide__process-item--final {
+  background: linear-gradient(180deg, #fff6ee 0%, #ffe7d2 100%);
+  border: 1px solid rgba(221, 134, 58, 0.24);
+  box-shadow: 0 8px 24px rgba(221, 134, 58, 0.12);
+}
+
+.guide__process-item--final .guide__process-step {
+  color: #c86d1f;
+}
+
+.guide__process-item--final.active:hover {
+  box-shadow: 0 12px 28px rgba(221, 134, 58, 0.18);
+}
+
+@keyframes guideFlowForward {
+  from {
+    background-position: 0 0;
+  }
+  to {
+    background-position: 12px 0;
+  }
+}
+
+@keyframes guideFlowReverse {
+  from {
+    background-position: 0 0;
+  }
+  to {
+    background-position: -12px 0;
+  }
+}
+
+@keyframes guideCurveDash {
+  from {
+    background-position: 0 0, 100% 10px, 0 100%;
+  }
+  to {
+    background-position: 12px 0, 100% 22px, -12px 100%;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .guide__process-item.active::after,
+  .guide__process-item:nth-child(4).active::before {
+    animation: none;
+  }
 }
 
 /* Process Step Number */

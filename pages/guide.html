@@ -187,7 +187,7 @@
             </div>
 
             <!-- Step 08 -->
-            <div class="guide__process-item">
+            <div class="guide__process-item guide__process-item--final">
               <div class="guide__process-icon">
                 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
                   <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path>
@@ -327,7 +327,7 @@
             </div>
 
             <!-- Step 08 -->
-            <div class="guide__process-item">
+            <div class="guide__process-item guide__process-item--final">
               <div class="guide__process-icon">
                 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
                   <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path>
@@ -452,6 +452,19 @@
     <script src="../js/components.js"></script>
     <script src="../js/main.js?v=20260113a"></script>
     <script>
+      // Show OEM section before ODM on initial guide page load
+      const guideContainer = document.querySelector('.page-section .container');
+      const odmSection = document.getElementById('odm');
+      const oemSection = document.getElementById('oem');
+      const guideDividers = guideContainer
+        ? guideContainer.querySelectorAll('.guide__divider')
+        : [];
+
+      if (guideContainer && odmSection && oemSection && guideDividers.length >= 1) {
+        guideContainer.insertBefore(oemSection, odmSection);
+        guideContainer.insertBefore(guideDividers[0], odmSection);
+      }
+
       // FAQ Accordion (toggle individually, don't close others)
       document.querySelectorAll('.faq__question').forEach(button => {
         button.addEventListener('click', () => {
