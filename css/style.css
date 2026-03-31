@@ -3125,6 +3125,8 @@ body .about__image img,
 /* Portfolio Swiper Navigation Buttons - 반투명 원형 */
 .portfolio-swiper-prev,
 .portfolio-swiper-next {
+  top: 50%;
+  margin-top: 0;
   width: 36px;
   height: 36px;
   background: rgba(0, 0, 0, 0.4);
@@ -3167,6 +3169,8 @@ body .about__image img,
 
 .products-swiper-prev,
 .products-swiper-next {
+  top: 50%;
+  margin-top: 0;
   width: 34px;
   height: 34px;
   background: rgba(0, 0, 0, 0.28);
