@@ -2015,36 +2015,6 @@ div.footer__social-links {
   padding-bottom: 0;
 }
 
-/* 왼쪽 타임라인 점 (왼쪽에) */
-.history-timeline--left .history-item::before {
-  content: "";
-  position: absolute;
-  left: -3rem;
-  top: 10px;
-  width: 14px;
-  height: 14px;
-  background-color: var(--color-dark);
-  border: 3px solid var(--color-primary);
-  border-radius: 50%;
-  transform: translateX(50%);
-  z-index: 1;
-}
-
-/* 오른쪽 타임라인 점 (오른쪽에) */
-.history-timeline--right .history-item::before {
-  content: "";
-  position: absolute;
-  right: -3rem;
-  top: 10px;
-  width: 14px;
-  height: 14px;
-  background-color: var(--color-dark);
-  border: 3px solid var(--color-primary);
-  border-radius: 50%;
-  transform: translateX(50%);
-  z-index: 1;
-}
-
 .history-item__year {
   position: absolute;
   top: 1.25rem;
@@ -2195,12 +2165,6 @@ div.footer__social-links {
   .history-timeline--right::before {
     left: 6px;
     right: auto;
-  }
-
-  .history-timeline--right .history-item::before {
-    left: -2.5rem;
-    right: auto;
-    transform: translateX(50%);
   }
 
   .history-item__year {
