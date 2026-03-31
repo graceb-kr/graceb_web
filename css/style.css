@@ -1974,8 +1974,10 @@ div.footer__social-links {
   width: 2px;
   background: linear-gradient(
     to bottom,
-    var(--color-primary),
-    rgba(139, 115, 85, 0.3)
+    rgba(139, 115, 85, 0.22) 0%,
+    rgba(139, 115, 85, 0.48) 32%,
+    rgba(139, 115, 85, 0.78) 72%,
+    rgba(139, 115, 85, 0.92) 100%
   );
 }
 
@@ -1997,8 +1999,10 @@ div.footer__social-links {
   width: 2px;
   background: linear-gradient(
     to bottom,
-    var(--color-primary),
-    rgba(139, 115, 85, 0.3)
+    rgba(139, 115, 85, 0.22) 0%,
+    rgba(139, 115, 85, 0.48) 32%,
+    rgba(139, 115, 85, 0.78) 72%,
+    rgba(139, 115, 85, 0.92) 100%
   );
 }
 
@@ -2156,6 +2160,21 @@ div.footer__social-links {
 .history-item__badge--highlight {
   background-color: var(--color-primary);
   color: var(--color-white);
+}
+
+.history-item__status-bar {
+  display: block;
+  width: 100%;
+  max-width: 22rem;
+  margin-top: 0.5rem;
+  padding: 0.625rem 1rem;
+  background: rgba(255, 255, 255, 0.16);
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  color: var(--color-white);
+  font-size: 0.95rem;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  text-align: center;
 }
 
 /* History Timeline Mobile */
